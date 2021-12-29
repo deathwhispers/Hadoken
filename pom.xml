@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.2</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>com.guangjian.hadoken</groupId>
+    <artifactId>hadoken</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+    <name>hadoken</name>
+    <description>万物互联</description>
+
+    <properties>
+        <!-- for maven compiler plugin -->
+        <java_source_version>1.8</java_source_version>
+        <java_target_version>1.8</java_target_version>
+        <file_encoding>UTF-8</file_encoding>
+        <checkstyle.skip>true</checkstyle.skip>
+        <checkstyle_unix.skip>true</checkstyle_unix.skip>
+        <rat.skip>true</rat.skip>
+        <jacoco.skip>true</jacoco.skip>
+        <revision>1.0.0</revision>
+    </properties>
+
+    <modules>
+        <module>hadoken-common</module>
+        <module>hadoken-adaptor</module>
+        <module>hadoken-connector</module>
+        <module>hadoken-manage</module>
+        <module>hadoken-distributor</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+    </dependencies>
+</project>

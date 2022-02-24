@@ -15,7 +15,7 @@
         <dependency>
             <groupId>com.guangjian.hadoken</groupId>
             <artifactId>hadoken-common</artifactId>
-            <version>${revision}</version>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 

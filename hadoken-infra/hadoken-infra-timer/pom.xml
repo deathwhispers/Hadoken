@@ -3,20 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
+        <artifactId>hadoken-infra</artifactId>
         <groupId>com.guangjian.hadoken</groupId>
-        <artifactId>hadoken</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>hadoken-distributor</artifactId>
-    <name>hadoken-distributor</name>
-    <description>hadoken-distributor</description>
-    <packaging>pom</packaging>
+    <artifactId>hadoken-infra-timer</artifactId>
+    <name>${project.artifactId}</name>
 
-    <modules>
-        <module>hadoken-distributor-api</module>
-        <module>hadoken-distributor-http</module>
-        <module>hadoken-distributor-kafka</module>
-    </modules>
-
+    <description>hadoken-infra-timer</description>
 
 </project>

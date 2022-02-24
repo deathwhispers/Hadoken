@@ -8,7 +8,7 @@
         <version>${revision}</version>
     </parent>
     <artifactId>hadoken-manage</artifactId>
-    <name>hadoken-manage</name>
+    <name>${project.artifactId}</name>
     <description>hadoken-manage</description>
     <packaging>pom</packaging>
 

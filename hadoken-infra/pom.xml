@@ -7,16 +7,19 @@
         <artifactId>hadoken</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>hadoken-distributor</artifactId>
-    <name>hadoken-distributor</name>
-    <description>hadoken-distributor</description>
+    <artifactId>hadoken-infra</artifactId>
+
+    <name>${project.artifactId}</name>
+    <description>hadoken-infra</description>
+
     <packaging>pom</packaging>
 
     <modules>
-        <module>hadoken-distributor-api</module>
-        <module>hadoken-distributor-http</module>
-        <module>hadoken-distributor-kafka</module>
+        <module>hadoken-common</module>
+        <module>hadoken-infra-monitor</module>
+        <module>hadoken-infra-mybatis</module>
+        <module>hadoken-infra-security</module>
+        <module>hadoken-infra-timer</module>
     </modules>
-
 
 </project>

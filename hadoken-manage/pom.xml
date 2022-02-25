@@ -14,13 +14,13 @@
 
     <modules>
         <module>hadoken-manage-api</module>
+        <module>hadoken-manage-impl</module>
     </modules>
 
     <dependencies>
         <dependency>
             <groupId>com.guangjian.hadoken</groupId>
             <artifactId>hadoken-common</artifactId>
-            <version>${revision}</version>
         </dependency>
     </dependencies>
 </project>

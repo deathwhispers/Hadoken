@@ -12,4 +12,22 @@
 
     <description>hadoken-infra-timer</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.guangjian.hadoken</groupId>
+            <artifactId>hadoken-common</artifactId>
+        </dependency>
+
+        <!-- Job 定时任务相关 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-quartz</artifactId>
+        </dependency>
+
+        <!-- 工具类相关 -->
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+        </dependency>
+    </dependencies>
 </project>

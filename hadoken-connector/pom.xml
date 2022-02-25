@@ -14,14 +14,12 @@
     <description>hadoken-connector</description>
 
     <modules>
+        <module>hadoken-connector-api</module>
+        <module>hadoken-connector-coap</module>
+        <module>hadoken-connector-http</module>
         <module>hadoken-connector-mqtt</module>
         <module>hadoken-connector-tcp</module>
+        <module>hadoken-connector-udp</module>
     </modules>
-    <dependencies>
-        <dependency>
-            <groupId>com.guangjian.hadoken</groupId>
-            <artifactId>hadoken-common</artifactId>
-            <version>${revision}</version>
-        </dependency>
-    </dependencies>
+
 </project>

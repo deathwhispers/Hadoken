@@ -53,6 +53,13 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- 内部依赖管理 -->
+            <dependency>
+                <groupId>com.guangjian.hadoken</groupId>
+                <artifactId>hadoken-common</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
             <!-- 统一依赖管理 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>

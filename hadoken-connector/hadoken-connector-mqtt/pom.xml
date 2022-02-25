@@ -12,13 +12,4 @@
     <name>hadoken-connector-mqtt</name>
     <description>hadoken-connector-mqtt</description>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-
 </project>

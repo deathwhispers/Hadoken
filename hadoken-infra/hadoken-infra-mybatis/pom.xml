@@ -18,6 +18,10 @@
             <groupId>com.guangjian.hadoken</groupId>
             <artifactId>hadoken-common</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.guangjian.hadoken</groupId>
+            <artifactId>hadoken-infra-web</artifactId>
+        </dependency>
 
         <!-- Web 相关 -->
         <dependency>

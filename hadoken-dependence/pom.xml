@@ -17,6 +17,7 @@
 
         <!-- 统一依赖管理 -->
         <spring.boot.version>2.5.9</spring.boot.version>
+        <spring.fox.version>3.0.0</spring.fox.version>
 
         <!-- DB 相关 -->
         <mysql.version>5.1.46</mysql.version>
@@ -59,6 +60,11 @@
                 <artifactId>hadoken-common</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <dependency>
+                <groupId>com.guangjian.hadoken</groupId>
+                <artifactId>hadoken-infra-web</artifactId>
+                <version>${revision}</version>
+            </dependency>
 
             <!-- 统一依赖管理 -->
             <dependency>
@@ -81,6 +87,13 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-configuration-processor</artifactId>
                 <version>${spring.boot.version}</version>
+            </dependency>
+
+            <!-- springfox 增加swagger的支持-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${spring.fox.version}</version>
             </dependency>
 
             <!-- mysql 连接器 -->

@@ -37,6 +37,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- springfox 增加swagger的支持-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
         <!-- 设置为 provided，只有工具类需要使用到 -->
         <dependency>
             <groupId>org.aspectj</groupId>

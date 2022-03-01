@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.guangjian.hadoken.infra.web.config.WebAutoConfiguration

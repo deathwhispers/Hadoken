@@ -62,7 +62,7 @@
             </dependency>
             <dependency>
                 <groupId>com.guangjian.hadoken</groupId>
-                <artifactId>hadoken-infra-web</artifactId>
+                <artifactId>hadoken-spring-boot-starter-web</artifactId>
                 <version>${revision}</version>
             </dependency>
 

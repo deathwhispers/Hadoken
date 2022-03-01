@@ -16,11 +16,11 @@
 
     <modules>
         <module>hadoken-common</module>
-        <module>hadoken-infra-monitor</module>
-        <module>hadoken-infra-mybatis</module>
-        <module>hadoken-infra-security</module>
-        <module>hadoken-infra-timer</module>
-        <module>hadoken-infra-web</module>
+        <module>hadoken-spring-boot-starter-monitor</module>
+        <module>hadoken-spring-boot-starter-mybatis</module>
+        <module>hadoken-spring-boot-starter-security</module>
+        <module>hadoken-spring-boot-starter-timer</module>
+        <module>hadoken-spring-boot-starter-web</module>
     </modules>
 
 </project>

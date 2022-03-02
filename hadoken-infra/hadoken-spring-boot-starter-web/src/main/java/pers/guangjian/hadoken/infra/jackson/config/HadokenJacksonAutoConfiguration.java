@@ -3,13 +3,14 @@ package pers.guangjian.hadoken.infra.jackson.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
-import pers.guangjian.hadoken.infra.jackson.core.databind.LocalDateTimeDeserializer;
-import pers.guangjian.hadoken.infra.jackson.core.databind.LocalDateTimeSerializer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import pers.guangjian.hadoken.common.util.json.JsonUtils;
+import pers.guangjian.hadoken.infra.jackson.core.databind.LocalDateTimeDeserializer;
+import pers.guangjian.hadoken.infra.jackson.core.databind.LocalDateTimeSerializer;
 
 import java.time.LocalDateTime;
 
@@ -41,7 +42,7 @@ public class HadokenJacksonAutoConfiguration {
 
                 objectMapper.registerModules(simpleModule);
 
-                //JSONUtil.init(objectMapper);
+                JsonUtils.init(objectMapper);
                 log.info("初始化 jackson 自动配置");
                 return bean;
             }

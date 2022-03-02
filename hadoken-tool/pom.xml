@@ -7,20 +7,15 @@
         <artifactId>hadoken</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>hadoken-manage</artifactId>
+
+    <artifactId>hadoken-tool</artifactId>
     <name>${project.artifactId}</name>
-    <description>hadoken-manage</description>
+    <description>hadoken-tool</description>
+
     <packaging>pom</packaging>
 
     <modules>
-        <module>hadoken-manage-api</module>
-        <module>hadoken-manage-biz</module>
+        <module>hadoken-tool-codegen</module>
     </modules>
 
-    <dependencies>
-        <dependency>
-            <groupId>pers.guangjian.hadoken</groupId>
-            <artifactId>hadoken-common</artifactId>
-        </dependency>
-    </dependencies>
 </project>

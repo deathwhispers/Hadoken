@@ -19,6 +19,7 @@
         <module>hadoken-connector</module>
         <module>hadoken-manage</module>
         <module>hadoken-distributor</module>
+        <module>hadoken-tool</module>
     </modules>
 
     <properties>

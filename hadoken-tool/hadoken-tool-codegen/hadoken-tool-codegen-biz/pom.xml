@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>pers.guangjian.hadoken</groupId>
+        <artifactId>hadoken-tool-codegen</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>hadoken-tool-codegen-biz</artifactId>
+    <name>hadoken-tool-codegen-biz</name>
+    <description>hadoken-tool-codegen-biz</description>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>pers.guangjian.hadoken</groupId>
+            <artifactId>hadoken-tool-codegen-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>pers.guangjian.hadoken</groupId>
+            <artifactId>hadoken-spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!--模板引擎-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/commons-configuration/commons-configuration -->
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+        </dependency>
+    </dependencies>
+</project>

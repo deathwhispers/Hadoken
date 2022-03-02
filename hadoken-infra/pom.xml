@@ -10,7 +10,7 @@
     <artifactId>hadoken-infra</artifactId>
 
     <name>${project.artifactId}</name>
-    <description>hadoken-infra</description>
+    <description>提供基础组件、框架、工具</description>
 
     <packaging>pom</packaging>
 

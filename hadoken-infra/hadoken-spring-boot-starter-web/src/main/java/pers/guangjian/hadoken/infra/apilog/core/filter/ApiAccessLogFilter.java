@@ -5,11 +5,12 @@ import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.servlet.ServletUtil;
 import cn.hutool.json.JSONUtil;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.filter.OncePerRequestFilter;
 import pers.guangjian.hadoken.common.exception.enums.GlobalErrorCodeConstants;
 import pers.guangjian.hadoken.common.result.CommonResult;
-import pers.guangjian.hadoken.common.util.date.DateUtils;
+import pers.guangjian.hadoken.common.util.date.DateUtil;
 import pers.guangjian.hadoken.common.util.monitor.TracerUtils;
 import pers.guangjian.hadoken.infra.apilog.core.service.ApiAccessLogService;
 import pers.guangjian.hadoken.infra.apilog.core.service.dto.ApiAccessLogCreateReqDTO;
@@ -27,23 +28,17 @@ import java.util.Map;
 
 /**
  * @Author: yanggj
- * @Description: TODO
+ * @Description: API 访问日志 Filter
  * @Date: 2022/03/02 9:27
  * @Version: 1.0.0
  */
 @Slf4j
+@RequiredArgsConstructor
 public class ApiAccessLogFilter extends OncePerRequestFilter {
 
     private final WebProperties webProperties;
     private final String applicationName;
-
     private final ApiAccessLogService apiAccessLogService;
-
-    public ApiAccessLogFilter(WebProperties webProperties, String applicationName, ApiAccessLogService apiAccessLogService) {
-        this.webProperties = webProperties;
-        this.applicationName = applicationName;
-        this.apiAccessLogService = apiAccessLogService;
-    }
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
@@ -113,6 +108,6 @@ public class ApiAccessLogFilter extends OncePerRequestFilter {
         // 持续时间
         accessLog.setBeginTime(beginTime);
         accessLog.setEndTime(new Date());
-        accessLog.setDuration((int) DateUtils.diff(accessLog.getEndTime(), accessLog.getBeginTime()));
+        accessLog.setDuration((int) DateUtil.diff(accessLog.getEndTime(), accessLog.getBeginTime()));
     }
 }

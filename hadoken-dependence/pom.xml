@@ -37,6 +37,7 @@
 
         <!-- Config 配置中心相关 -->
         <apollo.version>1.7.0</apollo.version>
+        <configuration.version>1.9</configuration.version>
 
         <!-- 测试相关 -->
         <podam.version>7.2.6.RELEASE</podam.version>
@@ -98,6 +99,13 @@
             </dependency>
             <!-- 内部依赖 结束 -->
 
+            <dependency>
+                <groupId>pers.guangjian.hadoken</groupId>
+                <artifactId>hadoken-tool-codegen-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+
             <!-- 统一依赖管理 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -118,6 +126,12 @@
                 <!-- 用于生成自定义的 Spring @ConfigurationProperties 配置类的说明文件 -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-configuration-processor</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jpa</artifactId>
                 <version>${spring.boot.version}</version>
             </dependency>
 
@@ -334,11 +348,11 @@
                 <version>${transmittable-thread-local.version}</version>
             </dependency>
 
-            <!-- 三方云服务相关 -->
-            <!-- SMS SDK end -->
-
-            <!-- 社交登陆（例如说，个人微信、企业微信等等） -->
-
+            <dependency>
+                <groupId>commons-configuration</groupId>
+                <artifactId>commons-configuration</artifactId>
+                <version>${configuration.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

@@ -1,2 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.guangjian.hadoken.infra.monitor
+  pers.guangjian.hadoken.infra.security.config.HadokenSecurityAutoConfiguration,\
+  pers.guangjian.hadoken.infra.security.config.HadokenWebSecurityConfigurerAdapter

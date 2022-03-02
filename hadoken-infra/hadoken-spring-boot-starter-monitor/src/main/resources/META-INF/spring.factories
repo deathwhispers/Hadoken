@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.guangjian.hadoken.infra.monitor
+  pers.guangjian.hadoken.infra.monitor.config.HadokenTraceAutoConfiguration

@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>hadoken-infra</artifactId>
-        <groupId>com.guangjian.hadoken</groupId>
+        <groupId>pers.guangjian.hadoken</groupId>
         <version>${revision}</version>
     </parent>
     <artifactId>hadoken-common</artifactId>
@@ -34,13 +34,6 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- springfox 增加swagger的支持-->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-boot-starter</artifactId>
             <scope>provided</scope>
         </dependency>
 
@@ -75,6 +68,12 @@
         </dependency>
 
         <!-- 设置为 provided，主要是 PageParam 使用到 -->
+        <!-- springfox 增加swagger的支持-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <scope>provided</scope>
+        </dependency>
 
         <!-- 监控相关 -->
         <dependency>

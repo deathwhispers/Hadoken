@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>hadoken-infra</artifactId>
-        <groupId>com.guangjian.hadoken</groupId>
+        <groupId>pers.guangjian.hadoken</groupId>
         <version>${revision}</version>
     </parent>
     <artifactId>hadoken-spring-boot-starter-timer</artifactId>
@@ -14,7 +14,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.guangjian.hadoken</groupId>
+            <groupId>pers.guangjian.hadoken</groupId>
             <artifactId>hadoken-common</artifactId>
         </dependency>
 

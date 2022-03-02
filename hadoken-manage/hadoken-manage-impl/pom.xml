@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>hadoken-manage</artifactId>
-        <groupId>com.guangjian.hadoken</groupId>
+        <groupId>pers.guangjian.hadoken</groupId>
         <version>${revision}</version>
     </parent>
     <artifactId>hadoken-manage-impl</artifactId>

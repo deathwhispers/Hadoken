@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.guangjian.hadoken</groupId>
+    <groupId>pers.guangjian.hadoken</groupId>
     <artifactId>hadoken-dependence</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
@@ -56,15 +56,47 @@
         <dependencies>
             <!-- 内部依赖管理 -->
             <dependency>
-                <groupId>com.guangjian.hadoken</groupId>
+                <groupId>pers.guangjian.hadoken</groupId>
                 <artifactId>hadoken-common</artifactId>
                 <version>${revision}</version>
             </dependency>
+
             <dependency>
-                <groupId>com.guangjian.hadoken</groupId>
+                <groupId>pers.guangjian.hadoken</groupId>
                 <artifactId>hadoken-spring-boot-starter-web</artifactId>
                 <version>${revision}</version>
             </dependency>
+
+            <dependency>
+                <groupId>pers.guangjian.hadoken</groupId>
+                <artifactId>hadoken-spring-boot-starter-redis</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>pers.guangjian.hadoken</groupId>
+                <artifactId>hadoken-spring-boot-starter-mq</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>pers.guangjian.hadoken</groupId>
+                <artifactId>hadoken-spring-boot-starter-security</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>pers.guangjian.hadoken</groupId>
+                <artifactId>hadoken-spring-boot-starter-mybatis</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>pers.guangjian.hadoken</groupId>
+                <artifactId>hadoken-spring-boot-starter-monitor</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!-- 内部依赖 结束 -->
 
             <!-- 统一依赖管理 -->
             <dependency>

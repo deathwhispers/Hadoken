@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 // Mapper 懒加载，目前仅用于单元测试
-@MapperScan(value = "${hadoken.mybatis.base-package}", annotationClass = Mapper.class,
+@MapperScan(value = "${hadoken.info.base-package}", annotationClass = Mapper.class,
         lazyInitialization = "${mybatis.lazy-initialization:false}")
 public class MybatisAutoConfiguration {
 

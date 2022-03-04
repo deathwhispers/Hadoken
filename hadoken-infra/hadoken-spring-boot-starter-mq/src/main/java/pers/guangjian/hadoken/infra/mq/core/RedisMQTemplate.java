@@ -25,6 +25,7 @@ public class RedisMQTemplate {
 
     @Getter
     private final RedisTemplate<String, ?> redisTemplate;
+
     /**
      * 拦截器数组
      */
@@ -39,6 +40,7 @@ public class RedisMQTemplate {
     public <T extends AbstractChannelMessage> void send(T message) {
         try {
             sendMessageBefore(message);
+
             // 发送消息
             redisTemplate.convertAndSend(message.getChannel(), JsonUtils.toJsonString(message));
         } finally {
@@ -55,10 +57,15 @@ public class RedisMQTemplate {
     public <T extends AbstractStreamMessage> RecordId send(T message) {
         try {
             sendMessageBefore(message);
+
             // 发送消息
             return redisTemplate.opsForStream().add(StreamRecords.newRecord()
-                    .ofObject(JsonUtils.toJsonString(message)) // 设置内容
-                    .withStreamKey(message.getStreamKey())); // 设置 stream key
+
+                    // 设置内容
+                    .ofObject(JsonUtils.toJsonString(message))
+
+                    // 设置 stream key
+                    .withStreamKey(message.getStreamKey()));
         } finally {
             sendMessageAfter(message);
         }
@@ -74,11 +81,13 @@ public class RedisMQTemplate {
     }
 
     private void sendMessageBefore(AbstractRedisMessage message) {
+
         // 正序
         interceptors.forEach(interceptor -> interceptor.sendMessageBefore(message));
     }
 
     private void sendMessageAfter(AbstractRedisMessage message) {
+
         // 倒序
         for (int i = interceptors.size() - 1; i >= 0; i--) {
             interceptors.get(i).sendMessageAfter(message);

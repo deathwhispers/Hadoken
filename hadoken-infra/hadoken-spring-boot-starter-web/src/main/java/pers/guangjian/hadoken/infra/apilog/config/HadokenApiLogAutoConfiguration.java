@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import pers.guangjian.hadoken.common.enums.WebFilterOrderEnum;
 import pers.guangjian.hadoken.infra.apilog.core.filter.ApiAccessLogFilter;
-import pers.guangjian.hadoken.infra.apilog.core.service.ApiAccessLogService;
+import pers.guangjian.hadoken.infra.apilog.core.service.ApiAccessLogFrameworkService;
 import pers.guangjian.hadoken.infra.web.config.HadokenWebAutoConfiguration;
 import pers.guangjian.hadoken.infra.web.config.WebProperties;
 
@@ -29,8 +29,8 @@ public class HadokenApiLogAutoConfiguration {
     @Bean
     public FilterRegistrationBean<ApiAccessLogFilter> apiAccessLogFilter(WebProperties webProperties,
                                                                          @Value("${spring.application.name}") String applicationName,
-                                                                         ApiAccessLogService apiAccessLogService) {
-        ApiAccessLogFilter filter = new ApiAccessLogFilter(webProperties, applicationName, apiAccessLogService);
+                                                                         ApiAccessLogFrameworkService apiAccessLogFrameworkService) {
+        ApiAccessLogFilter filter = new ApiAccessLogFilter(webProperties, applicationName, apiAccessLogFrameworkService);
         return createFilterBean(filter, WebFilterOrderEnum.API_ACCESS_LOG_FILTER);
     }
 

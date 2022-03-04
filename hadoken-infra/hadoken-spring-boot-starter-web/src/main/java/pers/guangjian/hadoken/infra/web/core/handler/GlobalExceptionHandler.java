@@ -4,6 +4,7 @@ import cn.hutool.core.exceptions.ExceptionUtil;
 import cn.hutool.core.map.MapUtil;
 import cn.hutool.extra.servlet.ServletUtil;
 import io.github.resilience4j.ratelimiter.RequestNotPermitted;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;
 import org.springframework.validation.BindException;
@@ -19,7 +20,7 @@ import pers.guangjian.hadoken.common.exception.HadokenServiceException;
 import pers.guangjian.hadoken.common.result.CommonResult;
 import pers.guangjian.hadoken.common.util.json.JsonUtils;
 import pers.guangjian.hadoken.common.util.monitor.TracerUtils;
-import pers.guangjian.hadoken.infra.apilog.core.service.ApiErrorLogService;
+import pers.guangjian.hadoken.infra.apilog.core.service.ApiErrorLogFrameworkService;
 import pers.guangjian.hadoken.infra.apilog.core.service.dto.ApiErrorLogCreateReqDTO;
 import pers.guangjian.hadoken.infra.web.core.util.ServletUtils;
 import pers.guangjian.hadoken.infra.web.core.util.WebUtils;
@@ -41,16 +42,13 @@ import static pers.guangjian.hadoken.common.exception.enums.GlobalErrorCodeConst
  * @Version: 1.0.0
  */
 @Slf4j
+@AllArgsConstructor
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
     private final String applicationName;
-    private final ApiErrorLogService apiErrorLogService;
 
-    public GlobalExceptionHandler(String applicationName, ApiErrorLogService apiErrorLogService) {
-        this.applicationName = applicationName;
-        this.apiErrorLogService = apiErrorLogService;
-    }
+    private final ApiErrorLogFrameworkService apiErrorLogFrameworkService;
 
     /**
      * 处理所有异常，主要是提供给 Filter 使用
@@ -245,7 +243,7 @@ public class GlobalExceptionHandler {
             initExceptionLog(errorLog, req, e);
 
             // 执行插入 errorLog
-            apiErrorLogService.createApiErrorLogAsync(errorLog);
+            apiErrorLogFrameworkService.createApiErrorLogAsync(errorLog);
         } catch (Throwable th) {
             log.error("[createExceptionLog][url({}) log({}) 发生异常]", req.getRequestURI(), JsonUtils.toJsonString(errorLog), th);
         }

@@ -4,7 +4,7 @@ import pers.guangjian.hadoken.common.exception.ErrorCode;
 
 /**
  * @Author: yanggj
- * @Description: TODO
+ * @Description: 错误码枚举
  * @Date: 2022/03/02 16:01
  * @Version: 1.0.0
  */

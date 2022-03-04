@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>pers.guangjian.hadoken</groupId>
+        <artifactId>hadoken</artifactId>
+        <version>${revision}</version>
+    </parent>
+    <artifactId>hadoken-element</artifactId>
+    <name>${project.artifactId}</name>
+    <description>hadoken-element</description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>hadoken-element-auth</module>
+        <module>hadoken-element-group</module>
+        <module>hadoken-element-log</module>
+        <module>hadoken-element-registry</module>
+        <module>hadoken-element-subscription</module>
+        <module>hadoken-element-tenant</module>
+    </modules>
+
+</project>

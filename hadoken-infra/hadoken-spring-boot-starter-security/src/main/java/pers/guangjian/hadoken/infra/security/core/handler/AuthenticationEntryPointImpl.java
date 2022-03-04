@@ -23,12 +23,12 @@ import static pers.guangjian.hadoken.common.exception.enums.GlobalErrorCodeConst
  * @author ruoyi
  */
 @Slf4j
-@SuppressWarnings("JavadocReference") // 忽略文档引用报错
 public class AuthenticationEntryPointImpl implements AuthenticationEntryPoint {
 
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) {
         log.debug("[commence][访问 URL({}) 时，没有登录]", request.getRequestURI(), e);
+
         // 返回 401
         ServletUtils.writeJSON(response, CommonResult.error(UNAUTHORIZED));
     }

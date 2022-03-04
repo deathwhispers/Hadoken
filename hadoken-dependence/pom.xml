@@ -43,6 +43,7 @@
         <podam.version>7.2.6.RELEASE</podam.version>
 
         <!-- 工具类相关 -->
+        <commons-pool2.version>2.5.0</commons-pool2.version>
         <lombok.version>1.18.20</lombok.version>
         <mapstruct.version>1.4.1.Final</mapstruct.version>
         <hutool.version>5.6.1</hutool.version>
@@ -55,13 +56,23 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- 内部依赖管理 -->
+
+            <!-- 统一依赖管理 -->
             <dependency>
-                <groupId>pers.guangjian.hadoken</groupId>
-                <artifactId>hadoken-common</artifactId>
-                <version>${revision}</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
+            <!-- 基础组件 start -->
             <dependency>
                 <groupId>pers.guangjian.hadoken</groupId>
                 <artifactId>hadoken-spring-boot-starter-web</artifactId>
@@ -88,38 +99,16 @@
 
             <dependency>
                 <groupId>pers.guangjian.hadoken</groupId>
-                <artifactId>hadoken-spring-boot-starter-mybatis</artifactId>
-                <version>${revision}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>pers.guangjian.hadoken</groupId>
                 <artifactId>hadoken-spring-boot-starter-monitor</artifactId>
                 <version>${revision}</version>
             </dependency>
-            <!-- 内部依赖 结束 -->
 
             <dependency>
                 <groupId>pers.guangjian.hadoken</groupId>
-                <artifactId>hadoken-tool-codegen-api</artifactId>
+                <artifactId>hadoken-spring-boot-starter-jpa</artifactId>
                 <version>${revision}</version>
             </dependency>
-
-
-            <!-- 统一依赖管理 -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring.boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-                <exclusions>
-                    <exclusion>
-                        <groupId>mysql</groupId>
-                        <artifactId>mysql-connector-java</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
+            <!-- 基础组件 end -->
 
             <!-- Spring 核心 -->
             <dependency>
@@ -129,10 +118,59 @@
                 <version>${spring.boot.version}</version>
             </dependency>
 
+            <!-- spring boot 测试 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <!-- web相关 -->
+            <!-- Spring boot Web 容器 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <!-- spring-boot Jpa -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-jpa</artifactId>
                 <version>${spring.boot.version}</version>
+            </dependency>
+
+            <!-- spring boot 安全框架 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <!-- spring boot 缓存 -->
+<!--            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-cache</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>-->
+
+            <!--Spring boot Redis-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <!-- web 结束 -->
+
+            <!--spring boot 集成redis所需common-pool2-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${commons-pool2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
             </dependency>
 
             <!-- springfox 增加swagger的支持-->
@@ -156,7 +194,7 @@
                 <version>${druid.version}</version>
             </dependency>
 
-            <!-- mybatis-plus -->
+            <!-- Mybatis -->
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
@@ -181,18 +219,6 @@
                 <groupId>com.ctrip.framework.apollo</groupId>
                 <artifactId>apollo-client</artifactId> <!-- 引入 Apollo Client 库，实现内嵌的配置中心 -->
                 <version>${apollo.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>lock4j-redisson-spring-boot-starter</artifactId>
-                <version>${lock4j.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <artifactId>redisson-spring-boot-starter</artifactId>
-                        <groupId>org.redisson</groupId>
-                    </exclusion>
-                </exclusions>
             </dependency>
 
             <dependency>
@@ -253,29 +279,11 @@
                 <version>${spring-boot-admin.version}</version>
             </dependency>
 
+            <!-- 工具类相关 -->
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-test</artifactId>
-                <version>${spring.boot.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <artifactId>asm</artifactId>
-                        <groupId>org.ow2.asm</groupId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.mockito</groupId>
-                        <artifactId>mockito-core</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <!-- 设置为 provided，主要是 PageParam 使用到 -->
-
-
-            <dependency>
-                <groupId>uk.co.jemos.podam</groupId> <!-- 单元测试，随机生成 POJO 类 -->
-                <artifactId>podam</artifactId>
-                <version>${podam.version}</version>
+                <groupId>pers.guangjian.hadoken</groupId>
+                <artifactId>hadoken-common</artifactId>
+                <version>${revision}</version>
             </dependency>
 
             <!-- lombok -->
@@ -315,25 +323,26 @@
                 <artifactId>easyexcel</artifactId>
                 <version>${easyexcel.verion}</version>
             </dependency>
+            <!-- 工具类结束 -->
 
-            <dependency>
-                <groupId>org.apache.velocity</groupId>
-                <artifactId>velocity-engine-core</artifactId>
-                <version>${velocity.version}</version>
-            </dependency>
+            <!--            <dependency>
+                            <groupId>org.apache.velocity</groupId>
+                            <artifactId>velocity-engine-core</artifactId>
+                            <version>${velocity.version}</version>
+                        </dependency>-->
 
             <!-- 移除 Freemarker 依赖，采用 Velocity 作为模板引擎 -->
-            <dependency>
-                <groupId>cn.smallbun.screw</groupId>
-                <artifactId>screw-core</artifactId> <!-- 实现数据库文档 -->
-                <version>${screw.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.freemarker</groupId>
-                        <artifactId>freemarker</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
+            <!--            <dependency>
+                            <groupId>cn.smallbun.screw</groupId>
+                            <artifactId>screw-core</artifactId> &lt;!&ndash; 实现数据库文档 &ndash;&gt;
+                            <version>${screw.version}</version>
+                            <exclusions>
+                                <exclusion>
+                                    <groupId>org.freemarker</groupId>
+                                    <artifactId>freemarker</artifactId>
+                                </exclusion>
+                            </exclusions>
+                        </dependency>-->
 
             <dependency>
                 <groupId>com.google.guava</groupId>

@@ -1,9 +1,9 @@
 package pers.guangjian.hadoken.infra.security.core.authentication;
 
-import pers.guangjian.hadoken.common.enums.UserTypeEnum;
 import lombok.Getter;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
+import pers.guangjian.hadoken.common.enums.UserTypeEnum;
 
 import java.util.Collection;
 

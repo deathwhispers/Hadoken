@@ -31,6 +31,7 @@ public abstract class AbstractStreamMessageListener<T extends AbstractStreamMess
      * 消息类型
      */
     private final Class<T> messageType;
+
     /**
      * Redis Channel
      */
@@ -43,6 +44,7 @@ public abstract class AbstractStreamMessageListener<T extends AbstractStreamMess
     @Value("${spring.application.name}")
     @Getter
     private String group;
+
     /**
      * RedisMQTemplate
      */
@@ -57,15 +59,19 @@ public abstract class AbstractStreamMessageListener<T extends AbstractStreamMess
 
     @Override
     public void onMessage(ObjectRecord<String, String> message) {
+
         // 消费消息
         T messageObj = JsonUtils.parseObject(message.getValue(), messageType);
         try {
             consumeMessageBefore(messageObj);
+
             // 消费消息
             this.onMessage(messageObj);
+
             // ack 消息消费完成
             redisMQTemplate.getRedisTemplate().opsForStream().acknowledge(group, message);
-            // TODO 芋艿：需要额外考虑以下几个点：
+
+            // TODO 需要额外考虑以下几个点：
             // 1. 处理异常的情况
             // 2. 发送日志；以及事务的结合
             // 3. 消费日志；以及通用的幂等性

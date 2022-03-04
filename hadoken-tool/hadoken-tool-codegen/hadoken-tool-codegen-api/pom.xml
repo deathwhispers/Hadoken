@@ -18,6 +18,7 @@
         <dependency>
             <groupId>pers.guangjian.hadoken</groupId>
             <artifactId>hadoken-common</artifactId>
+            <version>${revision}</version>
         </dependency>
     </dependencies>
 </project>

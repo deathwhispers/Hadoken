@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>pers.guangjian.hadoken</groupId>
+        <artifactId>hadoken</artifactId>
+        <version>${revision}</version>
+    </parent>
+    <artifactId>hadoken-server</artifactId>
+
+    <name>${project.artifactId}</name>
+    <description>
+        后端 Server 的主项目，通过引入需要各模块的依赖，
+        从而实现提供 RESTful API 给前端项目。
+        本质上来说，它就是个空壳（容器）！
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>pers.guangjian.hadoken</groupId>
+            <artifactId>hadoken-element-auth</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>pers.guangjian.hadoken</groupId>
+            <artifactId>hadoken-element-tenant</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>pers.guangjian.hadoken</groupId>
+            <artifactId>hadoken-element-group</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>pers.guangjian.hadoken</groupId>
+            <artifactId>hadoken-element-log</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>pers.guangjian.hadoken</groupId>
+            <artifactId>hadoken-element-registry</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>pers.guangjian.hadoken</groupId>
+            <artifactId>hadoken-element-subscription</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>pers.guangjian.hadoken</groupId>
+            <artifactId>hadoken-tool-codegen-biz</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+
+
+        <!-- spring boot 配置所需依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- 服务保障相关 -->
+
+
+    </dependencies>
+
+</project>

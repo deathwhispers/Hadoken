@@ -1,10 +1,13 @@
 package pers.guangjian.hadoken.infra.web.config;
 
+import org.springframework.util.AntPathMatcher;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import pers.guangjian.hadoken.common.enums.WebFilterOrderEnum;
+import pers.guangjian.hadoken.infra.apilog.core.service.ApiErrorLogFrameworkService;
 import pers.guangjian.hadoken.infra.web.core.filter.CacheRequestBodyFilter;
 import pers.guangjian.hadoken.infra.web.core.filter.XssFilter;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.web.WebProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -14,6 +17,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import pers.guangjian.hadoken.infra.web.core.handler.GlobalExceptionHandler;
 
 import javax.annotation.Resource;
 import javax.servlet.Filter;
@@ -36,6 +40,28 @@ public class HadokenWebAutoConfiguration implements WebMvcConfigurer {
     @Value("${spring.application.name}")
     private String applicationName;
 
+    @Override
+    public void configurePathMatch(PathMatchConfigurer configurer) {
+        configurePathMatch(configurer, webProperties.getAdminApi());
+        configurePathMatch(configurer, webProperties.getAppApi());
+    }
+
+    /**
+     * 设置 API 前缀，仅仅匹配 controller 包下的
+     *
+     * @param configurer 配置
+     * @param api API 配置
+     */
+    private void configurePathMatch(PathMatchConfigurer configurer, WebProperties.Api api) {
+        AntPathMatcher antPathMatcher = new AntPathMatcher(".");
+        configurer.addPathPrefix(api.getPrefix(), clazz -> clazz.isAnnotationPresent(RestController.class)
+                && antPathMatcher.match(api.getController(), clazz.getPackage().getName())); // 仅仅匹配 controller 包
+    }
+
+    @Bean
+    public GlobalExceptionHandler globalExceptionHandler(ApiErrorLogFrameworkService ApiErrorLogFrameworkService) {
+        return new GlobalExceptionHandler(applicationName, ApiErrorLogFrameworkService);
+    }
 
     // ========== Filter 相关 ==========
 

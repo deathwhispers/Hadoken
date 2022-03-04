@@ -15,8 +15,8 @@ import javax.annotation.Resource;
  * @Date: 2022/03/02 9:38
  * @Version: 1.0.0
  */
-public abstract class AuthorizeRequestsCustomizer implements
-        Customizer<ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry>, Ordered {
+public abstract class AuthorizeRequestsCustomizer
+        implements Customizer<ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry>, Ordered {
 
     @Resource
     private WebProperties webProperties;

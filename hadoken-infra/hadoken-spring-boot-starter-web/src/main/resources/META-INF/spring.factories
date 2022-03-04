@@ -1,4 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  pers.guangjian.hadoken.infra.web.config.HadokenWebAutoConfiguration,\
-  pers.guangjian.hadoken.infra.jackson.config.HadokenJacksonAutoConfiguration,\
-  pers.guangjian.hadoken.infra.apilog.config.HadokenApiLogAutoConfiguration
+pers.guangjian.hadoken.infra.apilog.config.HadokenApiLogAutoConfiguration,\
+pers.guangjian.hadoken.infra.swagger.config.SwaggerUiWebMvcConfiguration,\
+pers.guangjian.hadoken.infra.jackson.config.HadokenJacksonAutoConfiguration,\
+pers.guangjian.hadoken.infra.web.config.HadokenWebAutoConfiguration

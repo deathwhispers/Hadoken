@@ -6,6 +6,7 @@ import pers.guangjian.hadoken.tool.codegen.biz.domain.GenConfig;
 import pers.guangjian.hadoken.tool.codegen.biz.repository.GenConfigRepository;
 import pers.guangjian.hadoken.tool.codegen.biz.service.GenConfigService;
 
+import javax.annotation.Resource;
 import java.io.File;
 
 /**
@@ -13,10 +14,10 @@ import java.io.File;
  * @date 2019-01-14
  */
 @Service
-@RequiredArgsConstructor
 public class GenConfigServiceImpl implements GenConfigService {
 
-    private final GenConfigRepository genConfigRepository;
+    @Resource
+    private  GenConfigRepository genConfigRepository;
 
     @Override
     public GenConfig find(String tableName) {

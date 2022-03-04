@@ -10,12 +10,11 @@
     <artifactId>hadoken-infra</artifactId>
 
     <name>${project.artifactId}</name>
-    <description>提供基础组件、框架、工具</description>
+    <description>提供基础组件的封装</description>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>hadoken-common</module>
         <module>hadoken-spring-boot-starter-monitor</module>
         <module>hadoken-spring-boot-starter-mq</module>
         <module>hadoken-spring-boot-starter-mybatis</module>
@@ -23,6 +22,7 @@
         <module>hadoken-spring-boot-starter-security</module>
         <module>hadoken-spring-boot-starter-timer</module>
         <module>hadoken-spring-boot-starter-web</module>
+        <module>hadoken-spring-boot-starter-jpa</module>
     </modules>
 
 </project>

@@ -5,14 +5,13 @@ import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.servlet.ServletUtil;
 import cn.hutool.json.JSONUtil;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.filter.OncePerRequestFilter;
 import pers.guangjian.hadoken.common.exception.enums.GlobalErrorCodeConstants;
 import pers.guangjian.hadoken.common.result.CommonResult;
 import pers.guangjian.hadoken.common.util.date.DateUtil;
 import pers.guangjian.hadoken.common.util.monitor.TracerUtils;
-import pers.guangjian.hadoken.infra.apilog.core.service.ApiAccessLogService;
+import pers.guangjian.hadoken.infra.apilog.core.service.ApiAccessLogFrameworkService;
 import pers.guangjian.hadoken.infra.apilog.core.service.dto.ApiAccessLogCreateReqDTO;
 import pers.guangjian.hadoken.infra.web.config.WebProperties;
 import pers.guangjian.hadoken.infra.web.core.util.ServletUtils;
@@ -33,15 +32,21 @@ import java.util.Map;
  * @Version: 1.0.0
  */
 @Slf4j
-@RequiredArgsConstructor
 public class ApiAccessLogFilter extends OncePerRequestFilter {
 
     private final WebProperties webProperties;
     private final String applicationName;
-    private final ApiAccessLogService apiAccessLogService;
+    private final ApiAccessLogFrameworkService apiAccessLogFrameworkService;
+
+    public ApiAccessLogFilter(WebProperties webProperties, String applicationName, ApiAccessLogFrameworkService apiAccessLogFrameworkService) {
+        this.webProperties = webProperties;
+        this.applicationName = applicationName;
+        this.apiAccessLogFrameworkService = apiAccessLogFrameworkService;
+    }
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
+
         // 只过滤 API 请求的地址
         return !StrUtil.startWithAny(request.getRequestURI(), webProperties.getAppApi().getPrefix(),
                 webProperties.getAppApi().getPrefix());
@@ -50,18 +55,23 @@ public class ApiAccessLogFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
+
         // 获得开始时间
         Date beginTim = new Date();
+
         // 提前获得参数，避免 XssFilter 过滤处理
         Map<String, String> queryString = ServletUtil.getParamMap(request);
         String requestBody = ServletUtils.isJsonRequest(request) ? ServletUtil.getBody(request) : null;
 
         try {
+
             // 继续过滤器
             filterChain.doFilter(request, response);
+
             // 正常执行，记录日志
             createApiAccessLog(request, beginTim, queryString, requestBody, null);
         } catch (Exception ex) {
+
             // 异常执行，记录日志
             createApiAccessLog(request, beginTim, queryString, requestBody, ex);
             throw ex;
@@ -73,7 +83,7 @@ public class ApiAccessLogFilter extends OncePerRequestFilter {
         ApiAccessLogCreateReqDTO accessLog = new ApiAccessLogCreateReqDTO();
         try {
             this.buildApiAccessLogDTO(accessLog, request, beginTime, queryString, requestBody, ex);
-            apiAccessLogService.createApiAccessLogAsync(accessLog);
+            apiAccessLogFrameworkService.createApiAccessLogAsync(accessLog);
         } catch (Throwable th) {
             log.error("[createApiAccessLog][url({}) log({}) 发生异常]", request.getRequestURI(), JSONUtil.toJsonStr(accessLog), th);
         }
@@ -81,9 +91,11 @@ public class ApiAccessLogFilter extends OncePerRequestFilter {
 
     private void buildApiAccessLogDTO(ApiAccessLogCreateReqDTO accessLog, HttpServletRequest request, Date beginTime,
                                       Map<String, String> queryString, String requestBody, Exception ex) {
+
         // 处理用户信息
         accessLog.setUserId(WebUtils.getLoginUserId(request));
         accessLog.setUserType(WebUtils.getLoginUserType(request));
+
         // 设置访问结果
         CommonResult<?> result = WebUtils.getCommonResult(request);
         if (result != null) {
@@ -96,6 +108,7 @@ public class ApiAccessLogFilter extends OncePerRequestFilter {
             accessLog.setResultCode(0);
             accessLog.setResultMsg("");
         }
+
         // 设置其它字段
         accessLog.setTraceId(TracerUtils.getTraceId());
         accessLog.setApplicationName(applicationName);
@@ -105,6 +118,7 @@ public class ApiAccessLogFilter extends OncePerRequestFilter {
         accessLog.setRequestMethod(request.getMethod());
         accessLog.setUserAgent(ServletUtils.getUserAgent(request));
         accessLog.setUserIp(ServletUtil.getClientIP(request));
+
         // 持续时间
         accessLog.setBeginTime(beginTime);
         accessLog.setEndTime(new Date());

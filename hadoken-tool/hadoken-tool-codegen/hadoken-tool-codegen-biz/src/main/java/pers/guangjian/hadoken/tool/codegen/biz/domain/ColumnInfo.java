@@ -19,7 +19,7 @@ import java.io.Serializable;
 @Setter
 @Entity
 @NoArgsConstructor
-@Table(name = "code_column_config")
+@Table(name = "tool_code_column_config")
 public class ColumnInfo implements Serializable {
 
     @Id

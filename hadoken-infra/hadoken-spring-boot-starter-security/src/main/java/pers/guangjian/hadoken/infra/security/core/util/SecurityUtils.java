@@ -1,7 +1,5 @@
 package pers.guangjian.hadoken.infra.security.core.util;
 
-import pers.guangjian.hadoken.infra.security.core.LoginUser;
-import pers.guangjian.hadoken.infra.web.core.util.WebUtils;
 import org.springframework.lang.Nullable;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -9,6 +7,8 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.util.StringUtils;
+import pers.guangjian.hadoken.infra.security.core.LoginUser;
+import pers.guangjian.hadoken.infra.web.core.util.WebUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Set;

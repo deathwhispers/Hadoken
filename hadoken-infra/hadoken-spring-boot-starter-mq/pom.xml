@@ -13,7 +13,7 @@
     <description>消息队列，基于 Redis Pub/Sub 实现广播消费，基于 Stream 实现集群消费</description>
 
     <dependencies>
-        <!-- DB 相关 -->
+        <!-- 内部依赖 -->
         <dependency>
             <groupId>pers.guangjian.hadoken</groupId>
             <artifactId>hadoken-spring-boot-starter-redis</artifactId>

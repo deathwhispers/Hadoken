@@ -1,13 +1,10 @@
 package pers.guangjian.hadoken.tool.codegen.biz.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import pers.guangjian.hadoken.tool.codegen.biz.domain.GenConfig;
 
-/**
- * @author Zheng Jie
- * @date 2019-01-14
- */
-public interface GenConfigRepository extends JpaRepository<GenConfig, Long> {
+public interface GenConfigRepository extends JpaRepository<GenConfig, Long>, JpaSpecificationExecutor<GenConfig> {
 
     /**
      * 查询表配置

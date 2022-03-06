@@ -18,6 +18,7 @@
         <!-- 统一依赖管理 -->
         <spring.boot.version>2.5.9</spring.boot.version>
         <spring.fox.version>3.0.0</spring.fox.version>
+        <knife4j.version>3.0.2</knife4j.version>
 
         <!-- DB 相关 -->
         <mysql.version>5.1.46</mysql.version>
@@ -43,6 +44,7 @@
         <podam.version>7.2.6.RELEASE</podam.version>
 
         <!-- 工具类相关 -->
+        <log4jdbc.version>1.16</log4jdbc.version>
         <commons-pool2.version>2.5.0</commons-pool2.version>
         <lombok.version>1.18.20</lombok.version>
         <mapstruct.version>1.4.1.Final</mapstruct.version>
@@ -72,7 +74,15 @@
                 </exclusions>
             </dependency>
 
-            <!-- 基础组件 start -->
+            <!-- 内部依赖 start -->
+            <!-- 公共包 工具类 -->
+            <dependency>
+                <groupId>pers.guangjian.hadoken</groupId>
+                <artifactId>hadoken-common</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 基础设施 start -->
             <dependency>
                 <groupId>pers.guangjian.hadoken</groupId>
                 <artifactId>hadoken-spring-boot-starter-web</artifactId>
@@ -108,7 +118,8 @@
                 <artifactId>hadoken-spring-boot-starter-jpa</artifactId>
                 <version>${revision}</version>
             </dependency>
-            <!-- 基础组件 end -->
+            <!-- 基础设施 end -->
+            <!-- 内部依赖 end -->
 
             <!-- Spring 核心 -->
             <dependency>
@@ -178,6 +189,26 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-boot-starter</artifactId>
                 <version>${spring.fox.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>mapstruct</artifactId>
+                        <groupId>org.mapstruct</groupId> <!-- 避免冲突 -->
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>guava</artifactId>
+                        <groupId>com.google.guava</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>swagger-annotations</artifactId>
+                        <groupId>io.swagger</groupId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <!-- mysql 连接器 -->
@@ -280,10 +311,12 @@
             </dependency>
 
             <!-- 工具类相关 -->
+
+            <!--监控sql日志-->
             <dependency>
-                <groupId>pers.guangjian.hadoken</groupId>
-                <artifactId>hadoken-common</artifactId>
-                <version>${revision}</version>
+                <groupId>org.bgee.log4jdbc-log4j2</groupId>
+                <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+                <version>${log4jdbc.version}</version>
             </dependency>
 
             <!-- lombok -->

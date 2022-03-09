@@ -1,9 +1,11 @@
 package pers.guangjian.hadoken.infra.security.config;
 
 import cn.hutool.core.util.StrUtil;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -28,6 +30,7 @@ import java.util.List;
  * @author 芋道源码
  */
 @Configuration
+@AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE + 10)
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class HadokenWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
 

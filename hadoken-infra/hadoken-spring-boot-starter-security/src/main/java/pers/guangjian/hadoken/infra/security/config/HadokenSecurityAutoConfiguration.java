@@ -1,14 +1,5 @@
 package pers.guangjian.hadoken.infra.security.config;
 
-import pers.guangjian.hadoken.infra.security.core.aop.PreAuthenticatedAspect;
-import pers.guangjian.hadoken.infra.security.core.authentication.MultiUserDetailsAuthenticationProvider;
-import pers.guangjian.hadoken.infra.security.core.context.TransmittableThreadLocalSecurityContextHolderStrategy;
-import pers.guangjian.hadoken.infra.security.core.filter.JWTAuthenticationTokenFilter;
-import pers.guangjian.hadoken.infra.security.core.handler.AuthenticationEntryPointImpl;
-import pers.guangjian.hadoken.infra.security.core.handler.LogoutSuccessHandlerImpl;
-import pers.guangjian.hadoken.infra.security.core.service.SecurityAuthFrameworkService;
-import pers.guangjian.hadoken.infra.web.config.WebProperties;
-import pers.guangjian.hadoken.infra.web.core.handler.GlobalExceptionHandler;
 import org.springframework.beans.factory.config.MethodInvokingFactoryBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -20,6 +11,15 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.access.AccessDeniedHandlerImpl;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
+import pers.guangjian.hadoken.infra.security.core.aop.PreAuthenticatedAspect;
+import pers.guangjian.hadoken.infra.security.core.authentication.MultiUserDetailsAuthenticationProvider;
+import pers.guangjian.hadoken.infra.security.core.context.TransmittableThreadLocalSecurityContextHolderStrategy;
+import pers.guangjian.hadoken.infra.security.core.filter.JWTAuthenticationTokenFilter;
+import pers.guangjian.hadoken.infra.security.core.handler.AuthenticationEntryPointImpl;
+import pers.guangjian.hadoken.infra.security.core.handler.LogoutSuccessHandlerImpl;
+import pers.guangjian.hadoken.infra.security.core.service.SecurityAuthFrameworkService;
+import pers.guangjian.hadoken.infra.web.config.WebProperties;
+import pers.guangjian.hadoken.infra.web.core.handler.GlobalExceptionHandler;
 
 import javax.annotation.Resource;
 import java.util.List;

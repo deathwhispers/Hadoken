@@ -1,21 +1,17 @@
 package pers.guangjian.hadoken.infra.security.core.handler;
 
-import pers.guangjian.hadoken.common.exception.enums.GlobalErrorCodeConstants;
-import pers.guangjian.hadoken.common.result.CommonResult;
-import pers.guangjian.hadoken.infra.security.core.util.SecurityUtils;
-import pers.guangjian.hadoken.infra.web.core.util.ServletUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.access.ExceptionTranslationFilter;
+import pers.guangjian.hadoken.common.exception.enums.GlobalErrorCodeConstants;
+import pers.guangjian.hadoken.common.result.CommonResult;
+import pers.guangjian.hadoken.infra.security.core.util.SecurityUtils;
+import pers.guangjian.hadoken.infra.web.core.util.ServletUtils;
 
 import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-
-import static pers.guangjian.hadoken.common.exception.enums.GlobalErrorCodeConstants.FORBIDDEN;
 
 
 /**
@@ -29,15 +25,17 @@ import static pers.guangjian.hadoken.common.exception.enums.GlobalErrorCodeConst
 public class AccessDeniedHandlerImpl implements AccessDeniedHandler {
 
     @Override
-    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException e)
-            throws IOException, ServletException {
+    public void handle(HttpServletRequest request,
+                       HttpServletResponse response,
+                       AccessDeniedException accessDeniedException) {
 
         // 打印 warn 的原因是，不定期合并 warn，看看有没恶意破坏
         log.warn("[commence][访问 URL({}) 时，用户({}) 权限不够]", request.getRequestURI(),
-                SecurityUtils.getLoginUserId(), e);
+                SecurityUtils.getLoginUserId(), accessDeniedException);
 
         // 返回 403
-        ServletUtils.writeJSON(response, CommonResult.error(FORBIDDEN));
+        //response.sendError(HttpServletResponse.SC_FORBIDDEN, accessDeniedException.getMessage());
+        ServletUtils.writeJSON(response, CommonResult.error(GlobalErrorCodeConstants.FORBIDDEN));
     }
 
 }

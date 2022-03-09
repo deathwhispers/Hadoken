@@ -1,18 +1,17 @@
 package pers.guangjian.hadoken.infra.security.core.handler;
 
-import pers.guangjian.hadoken.common.exception.enums.GlobalErrorCodeConstants;
-import pers.guangjian.hadoken.common.result.CommonResult;
-import pers.guangjian.hadoken.infra.web.core.util.ServletUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.ExceptionTranslationFilter;
+import pers.guangjian.hadoken.common.exception.enums.GlobalErrorCodeConstants;
+import pers.guangjian.hadoken.common.result.CommonResult;
+import pers.guangjian.hadoken.infra.web.core.util.ServletUtils;
 
 import javax.servlet.FilterChain;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import static pers.guangjian.hadoken.common.exception.enums.GlobalErrorCodeConstants.UNAUTHORIZED;
+import java.io.IOException;
 
 
 /**
@@ -26,11 +25,13 @@ import static pers.guangjian.hadoken.common.exception.enums.GlobalErrorCodeConst
 public class AuthenticationEntryPointImpl implements AuthenticationEntryPoint {
 
     @Override
-    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) {
-        log.debug("[commence][访问 URL({}) 时，没有登录]", request.getRequestURI(), e);
+    public void commence(HttpServletRequest request,
+                         HttpServletResponse response,
+                         AuthenticationException authException) throws IOException {
+        log.debug("[commence][访问 URL({}) 时，没有登录]", request.getRequestURI(), authException);
 
-        // 返回 401
-        ServletUtils.writeJSON(response, CommonResult.error(UNAUTHORIZED));
+        // 当用户尝试访问安全的REST资源而不提供任何凭据时，将调用此方法发送401 响应
+        ServletUtils.writeJSON(response, CommonResult.error(GlobalErrorCodeConstants.UNAUTHORIZED));
     }
 
 }

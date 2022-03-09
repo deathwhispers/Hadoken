@@ -9,11 +9,13 @@ import pers.guangjian.hadoken.infra.web.config.WebProperties;
 import javax.annotation.Resource;
 
 /**
- * @Author: yanggj
- * @Description: 自定义的 URL 的安全配置
+ * @author yanggj
+ * <p>
+ * 自定义的 URL 的安全配置
  * 目的：每个 Maven Module 可以自定义规则！
- * @Date: 2022/03/02 9:38
- * @Version: 1.0.0
+ * </p>
+ * @version 1.0.0
+ * @date 2022/03/02 9:38
  */
 public abstract class AuthorizeRequestsCustomizer
         implements Customizer<ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry>, Ordered {

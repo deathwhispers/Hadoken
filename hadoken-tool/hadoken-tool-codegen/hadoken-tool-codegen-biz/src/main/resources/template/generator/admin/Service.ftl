@@ -17,7 +17,7 @@ package ${package}.service;
 
 import ${package}.domain.${className};
 import ${package}.service.dto.${className}Dto;
-import ${package}.service.dto.${className}QueryCriteria;
+import ${package}.rest.query.${className}QueryCriteria;
 import org.springframework.data.domain.Pageable;
 import java.util.Map;
 import java.util.List;
@@ -25,7 +25,6 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
 
 /**
-* @website https://el-admin.vip
 * @description 服务接口
 * @author ${author}
 * @date ${date}

@@ -20,18 +20,18 @@ import ${package}.domain.${className};
     <#list columns as column>
         <#if column.columnKey = 'UNI'>
             <#if column_index = 1>
-import me.zhengjie.exception.EntityExistException;
+import pers.guangjian.hadoken.common.exception.EntityExistException;
             </#if>
         </#if>
     </#list>
 </#if>
-import me.zhengjie.utils.ValidationUtil;
-import me.zhengjie.utils.FileUtil;
+import pers.guangjian.hadoken.common.util.validation.ValidationUtil;
+import pers.guangjian.hadoken.common.util.io.FileUtil;
 import lombok.RequiredArgsConstructor;
 import ${package}.repository.${className}Repository;
 import ${package}.service.${className}Service;
 import ${package}.service.dto.${className}Dto;
-import ${package}.service.dto.${className}QueryCriteria;
+import ${package}.rest.query.${className}QueryCriteria;
 import ${package}.service.mapstruct.${className}Mapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,8 +44,8 @@ import cn.hutool.core.util.IdUtil;
 </#if>
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import me.zhengjie.utils.PageUtil;
-import me.zhengjie.utils.QueryHelp;
+import pers.guangjian.hadoken.common.util.page.PageUtil;
+import pers.guangjian.hadoken.jpa.QueryHelp;
 import java.util.List;
 import java.util.Map;
 import java.io.IOException;
@@ -54,7 +54,6 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 /**
-* @website https://el-admin.vip
 * @description 服务实现
 * @author ${author}
 * @date ${date}

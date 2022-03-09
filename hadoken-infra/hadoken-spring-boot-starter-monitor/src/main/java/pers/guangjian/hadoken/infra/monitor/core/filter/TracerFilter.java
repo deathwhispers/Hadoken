@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * @Author: yanggj
- * @Description: Trace 过滤器，打印 traceId 到 header 中返回
- * @Date: 2022/03/02 10:51
- * @Version: 1.0.0
+ * @author yanggj
+ *  Trace 过滤器，打印 traceId 到 header 中返回
+ * @date 2022/03/02 10:51
+ * @version 1.0.0
  */
 public class TracerFilter extends OncePerRequestFilter {
 

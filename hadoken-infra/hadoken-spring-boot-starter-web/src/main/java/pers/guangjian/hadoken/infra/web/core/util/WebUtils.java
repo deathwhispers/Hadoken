@@ -9,10 +9,10 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @Author: yanggj
- * @Description: web 包的工具类
- * @Date: 2022/03/01 9:05
- * @Version: 1.0.0
+ * @author yanggj
+ *  web 包的工具类
+ * @date 2022/03/01 9:05
+ * @version 1.0.0
  */
 public class WebUtils {
 

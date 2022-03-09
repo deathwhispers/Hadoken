@@ -1,7 +1,9 @@
 package pers.guangjian.hadoken.common.util.validation;
 
+import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import org.springframework.util.StringUtils;
+import pers.guangjian.hadoken.common.exception.BadRequestException;
 
 import java.util.regex.Pattern;
 
@@ -10,7 +12,7 @@ import java.util.regex.Pattern;
  *
  * @author yanggj
  */
-public class ValidationUtils {
+public class ValidationUtil {
 
     private static final Pattern PATTERN_URL = Pattern.compile("^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]");
 
@@ -34,4 +36,21 @@ public class ValidationUtils {
                 && PATTERN_XML_NCNAME.matcher(str).matches();
     }
 
+
+    /**
+     * 验证空
+     */
+    public static void isNull(Object obj, String entity, String parameter, Object value) {
+        if (ObjectUtil.isNull(obj)) {
+            String msg = entity + " 不存在: " + parameter + " is " + value;
+            throw new BadRequestException(msg);
+        }
+    }
+
+    /**
+     * 验证是否为邮箱
+     */
+    public static boolean isEmail(String email) {
+        return true;
+    }
 }

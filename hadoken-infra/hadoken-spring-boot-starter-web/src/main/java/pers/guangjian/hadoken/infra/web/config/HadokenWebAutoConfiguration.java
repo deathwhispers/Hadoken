@@ -23,9 +23,9 @@ import javax.annotation.Resource;
 import javax.servlet.Filter;
 
 /**
- * @Author: yanggj
- * @Date: 2022/03/01 17:29
- * @Version: 1.0.0
+ * @author yanggj
+ * @date 2022/03/01 17:29
+ * @version 1.0.0
  */
 @Configuration
 @EnableConfigurationProperties({WebProperties.class, XssProperties.class})

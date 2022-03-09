@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @Author: yanggj
- * @Description: Servlet 工具类
- * @Date: 2022/03/01 17:35
- * @Version: 1.0.0
+ * @author yanggj
+ *  Servlet 工具类
+ * @date 2022/03/01 17:35
+ * @version 1.0.0
  */
 public class ServletUtils {
 

@@ -5,10 +5,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
- * @Author: yanggj
- * @Description: 时间工具类
- * @Date: 2022/03/02 11:24
- * @Version: 1.0.0
+ * @author yanggj
+ *  时间工具类
+ * @date 2022/03/02 11:24
+ * @version 1.0.0
  */
 public class DateUtil {
     public static final String FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE_SECOND = "yyyy-MM-dd HH:mm:ss";

@@ -3,10 +3,10 @@ package pers.guangjian.hadoken.common.util.object;
 import pers.guangjian.hadoken.common.entity.PageParam;
 
 /**
- * @Author: yanggj
- * @Description: {@link PageParam} 工具类
- * @Date: 2022/02/28 16:08
- * @Version: 1.0.0
+ * @author yanggj
+ *  {@link PageParam} 工具类
+ * @date 2022/02/28 16:08
+ * @version 1.0.0
  */
 public class PageUtils {
 

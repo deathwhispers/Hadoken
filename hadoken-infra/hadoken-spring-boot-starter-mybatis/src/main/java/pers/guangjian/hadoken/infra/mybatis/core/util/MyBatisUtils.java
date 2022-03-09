@@ -17,10 +17,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @Author: yanggj
- * @Description: MyBatis 工具类
- * @Date: 2022/02/28 15:12
- * @Version: 1.0.0
+ * @author yanggj
+ *  MyBatis 工具类
+ * @date 2022/02/28 15:12
+ * @version 1.0.0
  */
 public class MyBatisUtils {
 

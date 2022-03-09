@@ -15,10 +15,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Author: yanggj
- * @Description: JSON 工具类
- * @Date: 2022/03/02 13:38
- * @Version: 1.0.0
+ * @author yanggj
+ *  JSON 工具类
+ * @date 2022/03/02 13:38
+ * @version 1.0.0
  */
 @UtilityClass
 @Slf4j

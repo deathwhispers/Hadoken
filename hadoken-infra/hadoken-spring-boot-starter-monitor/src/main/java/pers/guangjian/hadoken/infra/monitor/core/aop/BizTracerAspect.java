@@ -18,10 +18,10 @@ import java.util.Map;
 import static java.util.Arrays.asList;
 
 /**
- * @Author: yanggj
- * @Description: 链路追踪 切面 记录业务链路
- * @Date: 2022/03/02 10:50
- * @Version: 1.0.0
+ * @author yanggj
+ *  链路追踪 切面 记录业务链路
+ * @date 2022/03/02 10:50
+ * @version 1.0.0
  */
 @Aspect
 @Slf4j

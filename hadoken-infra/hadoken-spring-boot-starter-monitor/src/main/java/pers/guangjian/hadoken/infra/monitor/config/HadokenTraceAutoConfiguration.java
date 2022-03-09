@@ -11,10 +11,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @Author: yanggj
- * @Description: Tracer 配置类
- * @Date: 2022/03/02 10:49
- * @Version: 1.0.0
+ * @author yanggj
+ *  Tracer 配置类
+ * @date 2022/03/02 10:49
+ * @version 1.0.0
  */
 @Configuration
 @ConditionalOnClass({BizTracerAspect.class})

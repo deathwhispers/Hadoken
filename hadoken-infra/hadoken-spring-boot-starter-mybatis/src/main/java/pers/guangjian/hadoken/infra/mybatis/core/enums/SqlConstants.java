@@ -1,10 +1,10 @@
 package pers.guangjian.hadoken.infra.mybatis.core.enums;
 
 /**
- * @Author: yanggj
- * @Description: Sql 相关常量类
- * @Date: 2022/02/28 15:01
- * @Version: 1.0.0
+ * @author yanggj
+ *  Sql 相关常量类
+ * @date 2022/02/28 15:01
+ * @version 1.0.0
  */
 public interface SqlConstants {
     String LIMIT_1 = "LIMIT 1";

@@ -15,10 +15,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Author: yanggj
- * @Description: Redis MQ 操作模板类
- * @Date: 2022/03/02 11:49
- * @Version: 1.0.0
+ * @author yanggj
+ *  Redis MQ 操作模板类
+ * @date 2022/03/02 11:49
+ * @version 1.0.0
  */
 @AllArgsConstructor
 public class RedisMQTemplate {

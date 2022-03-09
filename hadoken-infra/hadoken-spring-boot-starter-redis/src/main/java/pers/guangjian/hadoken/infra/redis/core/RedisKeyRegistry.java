@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Author: yanggj
- * @Description: {@link RedisKeyDefinition} 注册表
- * @Date: 2022/03/02 11:08
- * @Version: 1.0.0
+ * @author yanggj
+ *  {@link RedisKeyDefinition} 注册表
+ * @date 2022/03/02 11:08
+ * @version 1.0.0
  */
 public class RedisKeyRegistry {
 

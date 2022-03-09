@@ -30,9 +30,6 @@ public class GeneratorController {
     private final GeneratorService generatorService;
     private final GenConfigService genConfigService;
 
-    @Value("${generator.enabled}")
-    private Boolean generatorEnabled;
-
     @ApiOperation("查询数据库数据")
     @GetMapping(value = "/tables/all")
     public ResponseEntity<Object> queryTables() {
@@ -74,9 +71,6 @@ public class GeneratorController {
     @ApiOperation("生成代码")
     @PostMapping(value = "/{tableName}/{type}")
     public ResponseEntity<Object> generator(@PathVariable String tableName, @PathVariable Integer type, HttpServletRequest request, HttpServletResponse response) {
-        if (!generatorEnabled && type == 0) {
-            throw new BadRequestException("此环境不允许生成代码，请选择预览或者下载查看！");
-        }
         switch (type) {
             // 生成代码
             case 0:

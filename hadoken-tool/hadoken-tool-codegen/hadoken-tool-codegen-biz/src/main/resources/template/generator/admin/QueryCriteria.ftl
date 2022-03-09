@@ -13,7 +13,7 @@
 *  See the License for the specific language governing permissions and
 *  limitations under the License.
 */
-package ${package}.service.dto;
+package ${package}.rest.query;
 
 import lombok.Data;
 <#if queryHasTimestamp>
@@ -26,11 +26,10 @@ import java.math.BigDecimal;
 import java.util.List;
 </#if>
 <#if queryColumns??>
-import me.zhengjie.annotation.Query;
+import pers.guangjian.hadoken.jpa.annotation.Query;
 </#if>
 
 /**
-* @website https://el-admin.vip
 * @author ${author}
 * @date ${date}
 **/

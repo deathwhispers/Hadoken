@@ -3,10 +3,10 @@ package pers.guangjian.hadoken.tool.codegen.enums;
 import pers.guangjian.hadoken.common.exception.ErrorCode;
 
 /**
- * @Author: yanggj
- * @Description: 错误码枚举
- * @Date: 2022/03/02 16:01
- * @Version: 1.0.0
+ * @author yanggj
+ *  错误码枚举
+ * @date 2022/03/02 16:01
+ * @version 1.0.0
  */
 public interface ErrorCodeConstants {
 

@@ -24,10 +24,10 @@ import pers.guangjian.hadoken.infra.redis.config.HadokenRedisAutoConfiguration;
 import java.util.List;
 
 /**
- * @Author: yanggj
- * @Description: 消息队列配置类
- * @Date: 2022/03/02 11:48
- * @Version: 1.0.0
+ * @author yanggj
+ *  消息队列配置类
+ * @date 2022/03/02 11:48
+ * @version 1.0.0
  */
 @Slf4j
 @Configuration

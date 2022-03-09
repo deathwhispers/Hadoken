@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
- * @Author: yanggj
- * @Description: 数据库配置类
- * @Date: 2022/02/28 14:51
- * @Version: 1.0.0
+ * @author yanggj
+ *  数据库配置类
+ * @date 2022/02/28 14:51
+ * @version 1.0.0
  */
 @Configuration
 @EnableConfigurationProperties(DruidStatProperties.class)

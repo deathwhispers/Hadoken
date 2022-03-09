@@ -9,11 +9,11 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
- * @Author: yanggj
- * @Description: 通用参数填充实现类
+ * @author yanggj
+ *  通用参数填充实现类
  * <p>如果没有显式的对通用参数进行赋值，这里会对通用参数进行填充、赋值</p>
- * @Date: 2022/02/28 15:02
- * @Version: 1.0.0
+ * @date 2022/02/28 15:02
+ * @version 1.0.0
  */
 public class DefaultDBFieldHandler implements MetaObjectHandler {
     @Override

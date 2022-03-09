@@ -3,10 +3,10 @@ package pers.guangjian.hadoken.infra.mq.core.message;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * @Author: yanggj
- * @Description: Redis Channel Message 抽象类
- * @Date: 2022/03/02 11:51
- * @Version: 1.0.0
+ * @author yanggj
+ *  Redis Channel Message 抽象类
+ * @date 2022/03/02 11:51
+ * @version 1.0.0
  */
 public abstract class AbstractChannelMessage extends AbstractRedisMessage {
 

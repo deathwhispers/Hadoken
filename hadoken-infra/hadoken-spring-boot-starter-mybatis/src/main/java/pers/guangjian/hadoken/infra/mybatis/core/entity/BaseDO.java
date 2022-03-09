@@ -9,10 +9,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @Author: yanggj
- * @Description: 基础实体对象
- * @Date: 2022/02/28 14:58
- * @Version: 1.0.0
+ * @author yanggj
+ *  基础实体对象
+ * @date 2022/02/28 14:58
+ * @version 1.0.0
  */
 @Data
 public abstract class BaseDO implements Serializable {

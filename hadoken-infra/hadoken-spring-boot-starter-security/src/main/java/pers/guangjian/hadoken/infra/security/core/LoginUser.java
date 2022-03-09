@@ -11,10 +11,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.*;
 
 /**
- * @Author: yanggj
- * @Description: 登录用户信息
- * @Date: 2022/03/01 18:16
- * @Version: 1.0.0
+ * @author yanggj
+ *  登录用户信息
+ * @date 2022/03/01 18:16
+ * @version 1.0.0
  */
 @Data
 public class LoginUser implements UserDetails {

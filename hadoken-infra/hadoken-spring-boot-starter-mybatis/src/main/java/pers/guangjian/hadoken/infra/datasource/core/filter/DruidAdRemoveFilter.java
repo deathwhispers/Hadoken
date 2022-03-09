@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * @Author: yanggj
- * @Description: Druid 底部广告过滤器
- * @Date: 2022/02/28 14:54
- * @Version: 1.0.0
+ * @author yanggj
+ *  Druid 底部广告过滤器
+ * @date 2022/02/28 14:54
+ * @version 1.0.0
  */
 public class DruidAdRemoveFilter extends OncePerRequestFilter {
 

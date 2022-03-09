@@ -1,18 +1,19 @@
 package pers.guangjian.hadoken.tool.codegen.biz.util;
 
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * @Author: yanggj
- * @Description: sql字段转java
- * @Date: 2022/03/02 14:55
- * @Version: 1.0.0
+ * @author yanggj
+ * sql字段转java
+ * @version 1.0.0
+ * @date 2022/03/02 14:55
  */
-@Slf4j
 public class ColUtil {
+    private static final Logger logger = LoggerFactory.getLogger(ColUtil.class);
 
     /**
      * 转换mysql数据类型为java数据类型
@@ -33,7 +34,7 @@ public class ColUtil {
         try {
             return new PropertiesConfiguration("generator.properties");
         } catch (ConfigurationException e) {
-            log.error(e.getMessage(), e);
+            logger.error(e.getMessage(), e);
         }
         return null;
     }

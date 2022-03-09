@@ -11,10 +11,10 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * @Author: yanggj
- * @Description: 通用返回对象
- * @Date: 2022/02/28 15:21
- * @Version: 1.0.0
+ * @author yanggj
+ *  通用返回对象
+ * @date 2022/02/28 15:21
+ * @version 1.0.0
  */
 @Data
 public class CommonResult<T> implements Serializable {

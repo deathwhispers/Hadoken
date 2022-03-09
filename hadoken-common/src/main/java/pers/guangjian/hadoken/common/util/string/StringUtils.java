@@ -1,10 +1,10 @@
 package pers.guangjian.hadoken.common.util.string;
 
 /**
- * @Author: yanggj
- * @Description: String 工具类
- * @Date: 2022/03/02 15:22
- * @Version: 1.0.0
+ * @author yanggj
+ *  String 工具类
+ * @date 2022/03/02 15:22
+ * @version 1.0.0
  */
 public class StringUtils extends cn.hutool.core.util.StrUtil {
     private static final char SEPARATOR = '_';

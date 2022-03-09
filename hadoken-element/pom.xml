@@ -19,6 +19,7 @@
         <module>hadoken-element-registry</module>
         <module>hadoken-element-subscription</module>
         <module>hadoken-element-tenant</module>
+        <module>hadoken-element-system</module>
     </modules>
 
 </project>

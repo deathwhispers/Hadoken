@@ -8,10 +8,10 @@ import org.springframework.util.StringUtils;
 import java.util.Collection;
 
 /**
- * @Author: yanggj
- * @Description: 1. 拼接条件的方法，增加 xxxIfPresent 方法，用于判断值不存在的时候，不要拼接到条件中。
- * @Date: 2022/02/28 15:07
- * @Version: 1.0.0
+ * @author yanggj
+ *  1. 拼接条件的方法，增加 xxxIfPresent 方法，用于判断值不存在的时候，不要拼接到条件中。
+ * @date 2022/02/28 15:07
+ * @version 1.0.0
  */
 public class QueryWrapperPlus<T> extends QueryWrapper<T> {
 

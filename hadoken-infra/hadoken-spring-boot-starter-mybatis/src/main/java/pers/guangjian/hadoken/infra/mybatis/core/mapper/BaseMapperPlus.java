@@ -15,10 +15,10 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * @Author: yanggj
- * @Description: 对 BaseMapper 进行拓展，提供更多的能力
- * @Date: 2022/02/28 15:04
- * @Version: 1.0.0
+ * @author yanggj
+ *  对 BaseMapper 进行拓展，提供更多的能力
+ * @date 2022/02/28 15:04
+ * @version 1.0.0
  */
 public interface BaseMapperPlus<T> extends BaseMapper<T> {
     default PageResult<T> selectPage(PageParam pageParam, @Param("ew") Wrapper<T> queryWrapper) {

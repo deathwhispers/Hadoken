@@ -9,9 +9,9 @@ import static pers.guangjian.hadoken.common.exception.enums.GlobalErrorCodeConst
 import static pers.guangjian.hadoken.common.exception.util.HadokenServiceExceptionUtil.exception;
 
 /**
- * @Author: yanggj
- * @Date: 2022/03/01 18:14
- * @Version: 1.0.0
+ * @author yanggj
+ * @date 2022/03/01 18:14
+ * @version 1.0.0
  */
 public class PreAuthenticatedAspect {
 

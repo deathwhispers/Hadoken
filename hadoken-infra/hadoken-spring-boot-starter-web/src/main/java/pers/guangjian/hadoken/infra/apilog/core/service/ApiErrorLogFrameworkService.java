@@ -5,10 +5,10 @@ import pers.guangjian.hadoken.infra.apilog.core.service.dto.ApiErrorLogCreateReq
 import javax.validation.Valid;
 
 /**
- * @Author: yanggj
- * @Description: API 错误日志 接口
- * @Date: 2022/03/02 9:28
- * @Version: 1.0.0
+ * @author yanggj
+ *  API 错误日志 接口
+ * @date 2022/03/02 9:28
+ * @version 1.0.0
  */
 public interface ApiErrorLogFrameworkService {
 

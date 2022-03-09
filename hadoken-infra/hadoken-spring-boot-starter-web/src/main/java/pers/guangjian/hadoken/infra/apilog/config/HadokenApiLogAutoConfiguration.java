@@ -14,10 +14,10 @@ import pers.guangjian.hadoken.infra.web.config.WebProperties;
 import javax.servlet.Filter;
 
 /**
- * @Author: yanggj
- * @Description: Api 日志自动配置类
- * @Date: 2022/03/02 9:19
- * @Version: 1.0.0
+ * @author yanggj
+ *  Api 日志自动配置类
+ * @date 2022/03/02 9:19
+ * @version 1.0.0
  */
 @Configuration
 @AutoConfigureAfter(HadokenWebAutoConfiguration.class)

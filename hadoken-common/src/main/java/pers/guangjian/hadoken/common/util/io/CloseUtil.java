@@ -3,10 +3,10 @@ package pers.guangjian.hadoken.common.util.io;
 import java.io.Closeable;
 
 /**
- * @Author: yanggj
- * @Description: 用于关闭各种连接，缺啥补啥
- * @Date: 2022/02/28 15:51
- * @Version: 1.0.0
+ * @author yanggj
+ *  用于关闭各种连接，缺啥补啥
+ * @date 2022/02/28 15:51
+ * @version 1.0.0
  */
 public class CloseUtil {
 

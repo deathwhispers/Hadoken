@@ -26,10 +26,10 @@ import java.util.Date;
 import java.util.Map;
 
 /**
- * @Author: yanggj
- * @Description: API 访问日志 Filter
- * @Date: 2022/03/02 9:27
- * @Version: 1.0.0
+ * @author yanggj
+ *  API 访问日志 Filter
+ * @date 2022/03/02 9:27
+ * @version 1.0.0
  */
 @Slf4j
 public class ApiAccessLogFilter extends OncePerRequestFilter {

@@ -15,14 +15,13 @@
 */
 package ${package}.service.mapstruct;
 
-import me.zhengjie.base.BaseMapper;
+import pers.guangjian.hadoken.jpa.base.BaseMapper;
 import ${package}.domain.${className};
 import ${package}.service.dto.${className}Dto;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
 /**
-* @website https://el-admin.vip
 * @author ${author}
 * @date ${date}
 **/

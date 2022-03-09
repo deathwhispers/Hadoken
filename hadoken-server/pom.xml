@@ -49,6 +49,11 @@
         </dependency>
         <dependency>
             <groupId>pers.guangjian.hadoken</groupId>
+            <artifactId>hadoken-element-system</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>pers.guangjian.hadoken</groupId>
             <artifactId>hadoken-tool-codegen-biz</artifactId>
             <version>${revision}</version>
         </dependency>

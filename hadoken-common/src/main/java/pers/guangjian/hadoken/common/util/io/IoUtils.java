@@ -7,10 +7,10 @@ import cn.hutool.core.util.StrUtil;
 import java.io.InputStream;
 
 /**
- * @Author: yanggj
- * @Description: IO 工具类，用于 {@link IoUtil} 缺失的方法
- * @Date: 2022/02/28 15:51
- * @Version: 1.0.0
+ * @author yanggj
+ *  IO 工具类，用于 {@link IoUtil} 缺失的方法
+ * @date 2022/02/28 15:51
+ * @version 1.0.0
  */
 public class IoUtils {
 

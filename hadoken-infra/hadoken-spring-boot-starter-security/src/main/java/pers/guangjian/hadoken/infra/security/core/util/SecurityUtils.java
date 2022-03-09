@@ -1,23 +1,29 @@
 package pers.guangjian.hadoken.infra.security.core.util;
 
+import cn.hutool.json.JSONArray;
+import cn.hutool.json.JSONObject;
+import cn.hutool.json.JSONUtil;
 import org.springframework.lang.Nullable;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.util.StringUtils;
 import pers.guangjian.hadoken.infra.security.core.LoginUser;
+import pers.guangjian.hadoken.infra.security.core.enums.DataScopeEnum;
 import pers.guangjian.hadoken.infra.web.core.util.WebUtils;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 import java.util.Set;
 
 /**
- * @Author: yanggj
- * @Description: 安全服务工具类
- * @Date: 2022/03/01 18:15
- * @Version: 1.0.0
+ * @author yanggj
+ *  安全服务工具类
+ * @date 2022/03/01 18:15
+ * @version 1.0.0
  */
 public class SecurityUtils {
 
@@ -121,4 +127,26 @@ public class SecurityUtils {
         return authenticationToken;
     }
 
+
+    /**
+     * 获取当前用户的数据权限
+     * @return /
+     */
+    public static List<Long> getCurrentUserDataScope(){
+        UserDetails userDetails = getLoginUser();
+        JSONArray array = JSONUtil.parseArray(new JSONObject(userDetails).get("dataScopes"));
+        return JSONUtil.toList(array,Long.class);
+    }
+
+    /**
+     * 获取数据权限级别
+     * @return 级别
+     */
+    public static Integer getDataScopeType() {
+        List<Long> dataScopes = getCurrentUserDataScope();
+        if(dataScopes.size() != 0){
+            return DataScopeEnum.SELF.getScope();
+        }
+        return DataScopeEnum.ALL.getScope();
+    }
 }

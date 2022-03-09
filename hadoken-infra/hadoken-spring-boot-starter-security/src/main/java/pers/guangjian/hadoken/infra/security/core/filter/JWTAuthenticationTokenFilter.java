@@ -17,11 +17,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * @Author: yanggj
- * @Description: JWT 过滤器，验证 token 的有效性
+ * @author yanggj
+ *  JWT 过滤器，验证 token 的有效性
  * 验证通过后，获得 {@link LoginUser} 信息，并加入到 Spring Security 上下文
- * @Date: 2022/03/01 18:28
- * @Version: 1.0.0
+ * @date 2022/03/01 18:28
+ * @version 1.0.0
  */
 public class JWTAuthenticationTokenFilter extends OncePerRequestFilter {
     private final SecurityProperties securityProperties;

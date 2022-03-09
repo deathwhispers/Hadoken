@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @Author: yanggj
- * @Description: Mybatis 配置类
- * @Date: 2022/02/28 14:55
- * @Version: 1.0.0
+ * @author yanggj
+ *  Mybatis 配置类
+ * @date 2022/02/28 14:55
+ * @version 1.0.0
  */
 @Configuration
 // Mapper 懒加载，目前仅用于单元测试

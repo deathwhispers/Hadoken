@@ -33,10 +33,10 @@ hadoken:
   web:
     admin-api:
       prefix: /admin-api
-      controller: '**.controller.admin.**'
+      controller: '**.rest.**'
     app-api:
       prefix: /app-api
-      controller: '**.controller.app.**'
+      controller: '**.rest.**'
     admin-ui:
       url: http://dashboard.yudao.iocoder.cn # Admin 管理后台 UI 的地址
   swagger:

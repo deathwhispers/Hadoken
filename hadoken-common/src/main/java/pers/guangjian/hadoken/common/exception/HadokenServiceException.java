@@ -3,10 +3,10 @@ package pers.guangjian.hadoken.common.exception;
 import pers.guangjian.hadoken.common.exception.enums.ServiceErrorCodeRange;
 
 /**
- * @Author: yanggj
- * @Description: hadoken 业务异常
- * @Date: 2022/02/28 15:33
- * @Version: 1.0.0
+ * @author yanggj
+ *  hadoken 业务异常
+ * @date 2022/02/28 15:33
+ * @version 1.0.0
  */
 public final class HadokenServiceException extends RuntimeException {
 

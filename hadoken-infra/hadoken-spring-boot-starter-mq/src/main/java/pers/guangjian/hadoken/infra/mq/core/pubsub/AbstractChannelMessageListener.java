@@ -16,10 +16,10 @@ import java.util.List;
 
 /**
  * @param <T> 消息类型。一定要填写噢，不然会报错
- * @Author: yanggj
- * @Description: Redis Pub/Sub 监听器抽象类，用于实现广播消费
- * @Date: 2022/03/02 11:51
- * @Version: 1.0.0
+ * @author yanggj
+ *  Redis Pub/Sub 监听器抽象类，用于实现广播消费
+ * @date 2022/03/02 11:51
+ * @version 1.0.0
  */
 public abstract class AbstractChannelMessageListener<T extends AbstractChannelMessage> implements MessageListener {
 

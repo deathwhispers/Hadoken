@@ -8,10 +8,10 @@ import java.util.Arrays;
 import java.util.function.Consumer;
 
 /**
- * @Author: yanggj
- * @Description:  Object 工具类
- * @Date: 2022/02/28 16:07
- * @Version: 1.0.0
+ * @author yanggj
+ *   Object 工具类
+ * @date 2022/02/28 16:07
+ * @version 1.0.0
  */
 public class ObjectUtils {
 

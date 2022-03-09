@@ -7,10 +7,10 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializer;
 
 /**
- * @Author: yanggj
- * @Description: Redis 配置类
- * @Date: 2022/03/02 11:06
- * @Version: 1.0.0
+ * @author yanggj
+ *  Redis 配置类
+ * @date 2022/03/02 11:06
+ * @version 1.0.0
  */
 @Configuration
 public class HadokenRedisAutoConfiguration {

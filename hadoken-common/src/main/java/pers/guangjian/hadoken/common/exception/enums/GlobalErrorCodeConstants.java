@@ -3,10 +3,10 @@ package pers.guangjian.hadoken.common.exception.enums;
 import pers.guangjian.hadoken.common.exception.ErrorCode;
 
 /**
- * @Author: yanggj
- * @Description: 全局错误码枚举 - 与HTTP状态码保持一致
- * @Date: 2022/02/28 15:42
- * @Version: 1.0.0
+ * @author yanggj
+ *  全局错误码枚举 - 与HTTP状态码保持一致
+ * @date 2022/02/28 15:42
+ * @version 1.0.0
  */
 public interface GlobalErrorCodeConstants {
 

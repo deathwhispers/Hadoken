@@ -36,10 +36,10 @@ import java.util.Map;
 import static pers.guangjian.hadoken.common.exception.enums.GlobalErrorCodeConstants.*;
 
 /**
- * @Author: yanggj
- * @Description: 全局异常拦截器
- * @Date: 2022/03/01 9:05
- * @Version: 1.0.0
+ * @author yanggj
+ *  全局异常拦截器
+ * @date 2022/03/01 9:05
+ * @version 1.0.0
  */
 @Slf4j
 @AllArgsConstructor

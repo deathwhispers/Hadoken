@@ -6,10 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Author: yanggj
- * @Description: Redis 消息抽象基类
- * @Date: 2022/03/02 11:50
- * @Version: 1.0.0
+ * @author yanggj
+ *  Redis 消息抽象基类
+ * @date 2022/03/02 11:50
+ * @version 1.0.0
  */
 @Data
 public abstract class AbstractRedisMessage {

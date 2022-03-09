@@ -3,14 +3,14 @@ package pers.guangjian.hadoken.infra.monitor.core.annotation;
 import java.lang.annotation.*;
 
 /**
- * @Author: yanggj
- * @Description: 打印业务编号 / 业务类型注解
+ * @author yanggj
+ *  打印业务编号 / 业务类型注解
  * <p>
  * 使用时，需要设置 SkyWalking OAP Server 的 application.yaml 配置文件，修改 SW_SEARCHABLE_TAG_KEYS 配置项，
  * 增加 biz.type 和 biz.id 两值，然后重启 SkyWalking OAP Server 服务器。
  * </p>
- * @Date: 2022/03/02 10:50
- * @Version: 1.0.0
+ * @date 2022/03/02 10:50
+ * @version 1.0.0
  */
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)

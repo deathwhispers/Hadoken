@@ -27,9 +27,10 @@ import java.util.Map;
 
 /**
  * @author yanggj
- *  API 访问日志 Filter
- * @date 2022/03/02 9:27
+ * API 访问日志 Filter
  * @version 1.0.0
+ * @date 2022/03/02 9:27
+ * @see OncePerRequestFilter 仅执行一次的过滤器：确保在一次请求中只通过一次filter，用来记录每次请求的日志
  */
 @Slf4j
 public class ApiAccessLogFilter extends OncePerRequestFilter {
@@ -78,8 +79,11 @@ public class ApiAccessLogFilter extends OncePerRequestFilter {
         }
     }
 
-    private void createApiAccessLog(HttpServletRequest request, Date beginTime,
-                                    Map<String, String> queryString, String requestBody, Exception ex) {
+    private void createApiAccessLog(HttpServletRequest request,
+                                    Date beginTime,
+                                    Map<String, String> queryString,
+                                    String requestBody,
+                                    Exception ex) {
         ApiAccessLogCreateReqDTO accessLog = new ApiAccessLogCreateReqDTO();
         try {
             this.buildApiAccessLogDTO(accessLog, request, beginTime, queryString, requestBody, ex);
@@ -89,8 +93,12 @@ public class ApiAccessLogFilter extends OncePerRequestFilter {
         }
     }
 
-    private void buildApiAccessLogDTO(ApiAccessLogCreateReqDTO accessLog, HttpServletRequest request, Date beginTime,
-                                      Map<String, String> queryString, String requestBody, Exception ex) {
+    private void buildApiAccessLogDTO(ApiAccessLogCreateReqDTO accessLog,
+                                      HttpServletRequest request,
+                                      Date beginTime,
+                                      Map<String, String> queryString,
+                                      String requestBody,
+                                      Exception ex) {
 
         // 处理用户信息
         accessLog.setUserId(WebUtils.getLoginUserId(request));

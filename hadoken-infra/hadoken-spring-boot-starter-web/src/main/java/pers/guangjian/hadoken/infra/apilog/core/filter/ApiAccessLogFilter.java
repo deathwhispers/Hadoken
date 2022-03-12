@@ -12,7 +12,7 @@ import pers.guangjian.hadoken.common.result.CommonResult;
 import pers.guangjian.hadoken.common.util.date.DateUtil;
 import pers.guangjian.hadoken.common.util.monitor.TracerUtils;
 import pers.guangjian.hadoken.infra.apilog.core.service.ApiAccessLogFrameworkService;
-import pers.guangjian.hadoken.infra.apilog.core.service.dto.ApiAccessLogCreateReqDTO;
+import pers.guangjian.hadoken.infra.apilog.core.service.dto.ApiAccessLogDTO;
 import pers.guangjian.hadoken.infra.web.config.WebProperties;
 import pers.guangjian.hadoken.infra.web.core.util.ServletUtils;
 import pers.guangjian.hadoken.infra.web.core.util.WebUtils;
@@ -84,7 +84,7 @@ public class ApiAccessLogFilter extends OncePerRequestFilter {
                                     Map<String, String> queryString,
                                     String requestBody,
                                     Exception ex) {
-        ApiAccessLogCreateReqDTO accessLog = new ApiAccessLogCreateReqDTO();
+        ApiAccessLogDTO accessLog = new ApiAccessLogDTO();
         try {
             this.buildApiAccessLogDTO(accessLog, request, beginTime, queryString, requestBody, ex);
             apiAccessLogFrameworkService.createApiAccessLogAsync(accessLog);
@@ -93,7 +93,7 @@ public class ApiAccessLogFilter extends OncePerRequestFilter {
         }
     }
 
-    private void buildApiAccessLogDTO(ApiAccessLogCreateReqDTO accessLog,
+    private void buildApiAccessLogDTO(ApiAccessLogDTO accessLog,
                                       HttpServletRequest request,
                                       Date beginTime,
                                       Map<String, String> queryString,

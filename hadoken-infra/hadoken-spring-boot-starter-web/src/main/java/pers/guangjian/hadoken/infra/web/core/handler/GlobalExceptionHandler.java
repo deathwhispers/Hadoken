@@ -21,7 +21,7 @@ import pers.guangjian.hadoken.common.result.CommonResult;
 import pers.guangjian.hadoken.common.util.json.JsonUtils;
 import pers.guangjian.hadoken.common.util.monitor.TracerUtils;
 import pers.guangjian.hadoken.infra.apilog.core.service.ApiErrorLogFrameworkService;
-import pers.guangjian.hadoken.infra.apilog.core.service.dto.ApiErrorLogCreateReqDTO;
+import pers.guangjian.hadoken.infra.apilog.core.service.dto.ApiErrorLogDTO;
 import pers.guangjian.hadoken.infra.web.core.util.ServletUtils;
 import pers.guangjian.hadoken.infra.web.core.util.WebUtils;
 
@@ -30,6 +30,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import javax.validation.ValidationException;
 import java.nio.file.AccessDeniedException;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Map;
 
@@ -236,7 +237,7 @@ public class GlobalExceptionHandler {
 
     private void createExceptionLog(HttpServletRequest req, Throwable e) {
         // 插入错误日志
-        ApiErrorLogCreateReqDTO errorLog = new ApiErrorLogCreateReqDTO();
+        ApiErrorLogDTO errorLog = new ApiErrorLogDTO();
         try {
 
             // 初始化 errorLog
@@ -249,7 +250,7 @@ public class GlobalExceptionHandler {
         }
     }
 
-    private void initExceptionLog(ApiErrorLogCreateReqDTO errorLog, HttpServletRequest request, Throwable e) {
+    private void initExceptionLog(ApiErrorLogDTO errorLog, HttpServletRequest request, Throwable e) {
 
         // 处理用户信息
         errorLog.setUserId(WebUtils.getLoginUserId(request));
@@ -279,7 +280,7 @@ public class GlobalExceptionHandler {
         errorLog.setRequestMethod(request.getMethod());
         errorLog.setUserAgent(ServletUtils.getUserAgent(request));
         errorLog.setUserIp(ServletUtil.getClientIP(request));
-        errorLog.setExceptionTime(new Date());
+        errorLog.setExceptionTime(LocalDateTime.now());
     }
 
 }

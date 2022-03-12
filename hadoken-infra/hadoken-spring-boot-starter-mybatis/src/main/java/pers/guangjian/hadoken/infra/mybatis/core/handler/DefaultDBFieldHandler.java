@@ -5,6 +5,7 @@ import pers.guangjian.hadoken.infra.mybatis.core.entity.BaseDO;
 import pers.guangjian.hadoken.infra.web.core.util.WebUtils;
 import org.apache.ibatis.reflection.MetaObject;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
@@ -21,7 +22,7 @@ public class DefaultDBFieldHandler implements MetaObjectHandler {
         if (Objects.nonNull(metaObject) && metaObject.getOriginalObject() instanceof BaseDO) {
             BaseDO baseDO = (BaseDO) metaObject.getOriginalObject();
 
-            Date current = new Date();
+            LocalDateTime current = LocalDateTime.now();
 
             // 创建时间为空，则以当前时间为插入时间
             if (Objects.isNull(baseDO.getCreateTime())) {

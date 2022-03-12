@@ -1,11 +1,10 @@
 package pers.guangjian.hadoken.element.log.service;
 
 
-import pers.guangjian.hadoken.common.entity.PageResult;
+import org.springframework.data.domain.Pageable;
+import pers.guangjian.hadoken.element.log.domain.query.ApiErrorLogQueryCriteria;
 import pers.guangjian.hadoken.infra.apilog.core.service.ApiErrorLogFrameworkService;
-import pers.guangjian.hadoken.element.log.domain.po.ApiErrorLog;
-import pers.guangjian.hadoken.element.log.domain.query.ApiErrorLogExportReqVO;
-import pers.guangjian.hadoken.element.log.domain.query.ApiErrorLogPageReqVO;
+import pers.guangjian.hadoken.infra.apilog.core.service.dto.ApiErrorLogDTO;
 
 import java.util.List;
 
@@ -19,18 +18,16 @@ public interface ApiErrorLogService extends ApiErrorLogFrameworkService {
     /**
      * 获得 API 错误日志分页
      *
-     * @param pageReqVO 分页查询
-     * @return API 错误日志分页
+     * @return Page 错误日志分页
      */
-    PageResult<ApiErrorLog> getApiErrorLogPage(ApiErrorLogPageReqVO pageReqVO);
+    Object queryAll(ApiErrorLogQueryCriteria criteria, Pageable pageable);
 
     /**
      * 获得 API 错误日志列表, 用于 Excel 导出
      *
-     * @param exportReqVO 查询条件
-     * @return API 错误日志分页
+     * @return List
      */
-    List<ApiErrorLog> getApiErrorLogList(ApiErrorLogExportReqVO exportReqVO);
+    List<ApiErrorLogDTO> queryAll(ApiErrorLogQueryCriteria criteria);
 
     /**
      * 更新 API 错误日志已处理

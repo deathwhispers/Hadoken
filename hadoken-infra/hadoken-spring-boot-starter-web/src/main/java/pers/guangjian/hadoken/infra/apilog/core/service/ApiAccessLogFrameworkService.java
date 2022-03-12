@@ -1,6 +1,6 @@
 package pers.guangjian.hadoken.infra.apilog.core.service;
 
-import pers.guangjian.hadoken.infra.apilog.core.service.dto.ApiAccessLogCreateReqDTO;
+import pers.guangjian.hadoken.infra.apilog.core.service.dto.ApiAccessLogDTO;
 
 import javax.validation.Valid;
 
@@ -17,6 +17,6 @@ public interface ApiAccessLogFrameworkService {
      *
      * @param createDTO 创建信息
      */
-    void createApiAccessLogAsync(@Valid ApiAccessLogCreateReqDTO createDTO);
+    void createApiAccessLogAsync(@Valid ApiAccessLogDTO createDTO);
 
 }

@@ -4,19 +4,15 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.data.domain.Pageable;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import pers.guangjian.hadoken.common.entity.PageResult;
 import pers.guangjian.hadoken.common.result.CommonResult;
-import pers.guangjian.hadoken.element.log.domain.po.ApiErrorLog;
-import pers.guangjian.hadoken.element.log.domain.query.ApiErrorLogExportReqVO;
-import pers.guangjian.hadoken.element.log.domain.query.ApiErrorLogPageReqVO;
-import pers.guangjian.hadoken.element.log.domain.query.ApiErrorLogRespVO;
+import pers.guangjian.hadoken.element.log.domain.query.ApiErrorLogQueryCriteria;
 import pers.guangjian.hadoken.element.log.service.ApiErrorLogService;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
 import java.io.IOException;
 
 
@@ -35,22 +31,20 @@ public class ApiErrorLogController {
             @ApiImplicitParam(name = "id", value = "编号", required = true, example = "1024", dataTypeClass = Long.class),
             @ApiImplicitParam(name = "processStatus", value = "处理状态", required = true, example = "1", dataTypeClass = Integer.class)
     })
-    public CommonResult<Boolean> updateApiErrorLogProcess(@RequestParam("id") Long id,
-                                                          @RequestParam("processStatus") Integer processStatus) {
+    public CommonResult<Boolean> updateApiErrorLogProcess(@RequestParam("id") Long id, @RequestParam("processStatus") Integer processStatus) {
         return null;
     }
 
     @GetMapping("/page")
     @ApiOperation("获得 API 错误日志分页")
-    public CommonResult<PageResult<ApiErrorLogRespVO>> getApiErrorLogPage(@Valid ApiErrorLogPageReqVO pageVO) {
-        PageResult<ApiErrorLog> pageResult = apiErrorLogService.getApiErrorLogPage(pageVO);
-        return null;
+    public CommonResult<Object> getApiErrorLogPage(ApiErrorLogQueryCriteria criteria, Pageable pageable) {
+        Object result = apiErrorLogService.queryAll(criteria,pageable);
+        return CommonResult.success(result);
     }
 
     @GetMapping("/export-excel")
     @ApiOperation("导出 API 错误日志 Excel")
-    public void exportApiErrorLogExcel(@Valid ApiErrorLogExportReqVO exportReqVO,
-                                       HttpServletResponse response) throws IOException {
+    public void exportApiErrorLogExcel(ApiErrorLogQueryCriteria criteria, HttpServletResponse response) throws IOException {
     }
 
 }

@@ -5,7 +5,7 @@ import pers.guangjian.hadoken.common.enums.UserTypeEnum;
 import pers.guangjian.hadoken.common.result.CommonResult;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * API 访问日志
@@ -78,11 +78,11 @@ public class ApiAccessLog {
     /**
      * 开始请求时间
      */
-    private Date beginTime;
+    private LocalDateTime beginTime;
     /**
      * 结束请求时间
      */
-    private Date endTime;
+    private LocalDateTime endTime;
     /**
      * 执行时长，单位：毫秒
      */

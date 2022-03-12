@@ -6,9 +6,9 @@ import java.util.Date;
 
 /**
  * @author yanggj
- *  时间工具类
- * @date 2022/03/02 11:24
+ * 时间工具类
  * @version 1.0.0
+ * @date 2022/03/02 11:24
  */
 public class DateUtil {
     public static final String FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE_SECOND = "yyyy-MM-dd HH:mm:ss";

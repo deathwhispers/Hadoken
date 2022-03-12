@@ -17,7 +17,7 @@ import java.util.Date;
 @ApiModel(value = "API 错误日志创建 DTO", description = "API 错误日志")
 @Data
 @Accessors(chain = true)
-public class ApiAccessLogCreateReqDTO {
+public class ApiAccessLogDTO {
 
     /**
      * 链路追踪编号

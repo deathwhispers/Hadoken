@@ -1,6 +1,6 @@
 package pers.guangjian.hadoken.infra.apilog.core.service;
 
-import pers.guangjian.hadoken.infra.apilog.core.service.dto.ApiErrorLogCreateReqDTO;
+import pers.guangjian.hadoken.infra.apilog.core.service.dto.ApiErrorLogDTO;
 
 import javax.validation.Valid;
 
@@ -17,6 +17,6 @@ public interface ApiErrorLogFrameworkService {
      *
      * @param createDTO 创建信息
      */
-    void createApiErrorLogAsync(@Valid ApiErrorLogCreateReqDTO createDTO);
+    void createApiErrorLogAsync(@Valid ApiErrorLogDTO createDTO);
 
 }

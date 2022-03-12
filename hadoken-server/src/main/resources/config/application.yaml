@@ -32,13 +32,13 @@ hadoken:
     base-package: pers.guangjian.hadoken
   web:
     admin-api:
-      prefix: /admin-api
+      prefix: /
       controller: '**.rest.**'
     app-api:
-      prefix: /app-api
+      prefix: /
       controller: '**.rest.**'
     admin-ui:
-      url: http://dashboard.yudao.iocoder.cn # Admin 管理后台 UI 的地址
+      url: http://localhost:8080 # Admin 管理后台 UI 的地址
   swagger:
     title: 管理后台
     description: 提供管理员管理的所有功能

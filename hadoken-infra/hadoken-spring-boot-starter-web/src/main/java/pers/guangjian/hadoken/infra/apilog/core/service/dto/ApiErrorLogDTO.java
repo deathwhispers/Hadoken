@@ -6,18 +6,18 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * @author yanggj
- *  API 错误日志创建 DTO
- * @date 2022/03/02 9:27
+ * API 错误日志创建 DTO
  * @version 1.0.0
+ * @date 2022/03/02 9:27
  */
 @ApiModel(value = "API 错误日志创建 DTO", description = "API 错误日志")
 @Data
 @Accessors(chain = true)
-public class ApiErrorLogCreateReqDTO {
+public class ApiErrorLogDTO {
 
     /**
      * 链路编号
@@ -82,7 +82,7 @@ public class ApiErrorLogCreateReqDTO {
      */
     @ApiModelProperty(value = "异常时间")
     @NotNull(message = "异常时间不能为空")
-    private Date exceptionTime;
+    private LocalDateTime exceptionTime;
 
     /**
      * 异常名

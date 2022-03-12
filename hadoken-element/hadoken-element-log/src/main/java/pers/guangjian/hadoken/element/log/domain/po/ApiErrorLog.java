@@ -4,7 +4,7 @@ import lombok.Data;
 import pers.guangjian.hadoken.common.enums.UserTypeEnum;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * API 异常数据
@@ -76,7 +76,7 @@ public class ApiErrorLog {
     /**
      * 异常发生时间
      */
-    private Date exceptionTime;
+    private LocalDateTime exceptionTime;
     /**
      * 异常名
      * <p>
@@ -137,12 +137,12 @@ public class ApiErrorLog {
     /**
      * 处理时间
      */
-    private Date processTime;
+    private LocalDateTime processTime;
     /**
      * 处理用户编号
      * <p>
      * 关联 cn.iocoder.yudao.adminserver.modules.system.dal.dataobject.user.SysUserDO.SysUserDO#getId()
      */
-    private String processUserId;
+    private Long processUserId;
 
 }

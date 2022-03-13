@@ -1,4 +1,6 @@
 spring:
+  servlet:
+    context-path: /hadoken
   application:
     name: hadoken-server
   main:
@@ -32,7 +34,7 @@ hadoken:
     base-package: pers.guangjian.hadoken
   web:
     admin-api:
-      prefix: /
+      prefix: /hadoken
       controller: '**.rest.**'
     app-api:
       prefix: /

@@ -3,6 +3,7 @@ package pers.guangjian.hadoken.infra.security.core.util;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import org.springframework.http.HttpStatus;
 import org.springframework.lang.Nullable;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -11,6 +12,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.util.StringUtils;
+import pers.guangjian.hadoken.common.exception.BadRequestException;
 import pers.guangjian.hadoken.infra.security.core.LoginUser;
 import pers.guangjian.hadoken.infra.security.core.enums.DataScopeEnum;
 import pers.guangjian.hadoken.infra.web.core.util.WebUtils;
@@ -21,9 +23,9 @@ import java.util.Set;
 
 /**
  * @author yanggj
- *  安全服务工具类
- * @date 2022/03/01 18:15
+ * 安全服务工具类
  * @version 1.0.0
+ * @date 2022/03/01 18:15
  */
 public class SecurityUtils {
 
@@ -130,23 +132,42 @@ public class SecurityUtils {
 
     /**
      * 获取当前用户的数据权限
+     *
      * @return /
      */
-    public static List<Long> getCurrentUserDataScope(){
+    public static List<Long> getCurrentUserDataScope() {
         UserDetails userDetails = getLoginUser();
         JSONArray array = JSONUtil.parseArray(new JSONObject(userDetails).get("dataScopes"));
-        return JSONUtil.toList(array,Long.class);
+        return JSONUtil.toList(array, Long.class);
     }
 
     /**
      * 获取数据权限级别
+     *
      * @return 级别
      */
     public static Integer getDataScopeType() {
         List<Long> dataScopes = getCurrentUserDataScope();
-        if(dataScopes.size() != 0){
+        if (dataScopes.size() != 0) {
             return DataScopeEnum.SELF.getScope();
         }
         return DataScopeEnum.ALL.getScope();
+    }
+
+    /**
+     * 获取系统用户名称
+     *
+     * @return 系统用户名称
+     */
+    public static String getCurrentUsername() {
+        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null) {
+            throw new BadRequestException(HttpStatus.UNAUTHORIZED, "当前登录状态过期");
+        }
+        if (authentication.getPrincipal() instanceof UserDetails) {
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            return userDetails.getUsername();
+        }
+        throw new BadRequestException(HttpStatus.UNAUTHORIZED, "找不到当前登录的信息");
     }
 }

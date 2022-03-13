@@ -18,12 +18,16 @@ public class SecurityConfiguration {
 
             @Override
             public void customize(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry) {
+
                 // 登录的接口，可匿名访问
                 registry.antMatchers(buildAdminApi("/system/login")).anonymous();
+
                 // 验证码的接口
                 registry.antMatchers(buildAdminApi("/system/captcha/**")).anonymous();
+
                 // 获得租户编号的接口
                 registry.antMatchers(buildAdminApi("/system/tenant/get-id-by-name")).anonymous();
+
                 // 短信回调 API
                 registry.antMatchers(buildAdminApi("/system/sms/callback/**")).anonymous();
             }

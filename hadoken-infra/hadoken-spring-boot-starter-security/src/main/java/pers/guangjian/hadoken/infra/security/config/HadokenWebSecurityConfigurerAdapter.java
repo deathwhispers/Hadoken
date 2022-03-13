@@ -11,6 +11,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -30,6 +31,7 @@ import java.util.List;
  * @author 芋道源码
  */
 @Configuration
+@EnableWebSecurity
 @AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE + 10)
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class HadokenWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
@@ -111,53 +113,67 @@ public class HadokenWebSecurityConfigurerAdapter extends WebSecurityConfigurerAd
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
 
-        // 登出
         httpSecurity
-                // 开启跨域
-                .cors().and()
-
-                // CSRF 禁用，因为不使用 Session
+                // 禁用CSRF，因为不使用 Session
                 .csrf().disable()
 
-                // 基于 token 机制，所以不需要 Session
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .headers().frameOptions().disable().and()
+                // 添加token验证,添加 JWT Filter
+                .addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class)
 
-                // 一堆自定义的 Spring Security 处理器
-                .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
-                .accessDeniedHandler(accessDeniedHandler).and()
+                // 授权异常
+                .exceptionHandling()
+                .authenticationEntryPoint(authenticationEntryPoint)
+                .accessDeniedHandler(accessDeniedHandler)
 
-                // 登出地址的配置
-                .logout().logoutSuccessHandler(logoutSuccessHandler).logoutRequestMatcher(request -> // 匹配多种用户类型的登出
-                        StrUtil.equalsAny(request.getRequestURI(), buildAdminApi("/system/logout"),
-                                buildAppApi("/member/logout")));
+                // 防止 iframe 造成跨域
+                .and()
+                .headers()
+                .frameOptions()
+                .disable()
+                // 不创建会话;基于 token 机制，所以不需要 Session
+                .and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 
-
-        // 设置每个请求的权限
-        httpSecurity
+                .and()
                 // ①：全局共享规则
                 .authorizeRequests()
 
                 // 静态资源，可匿名访问
-                .antMatchers(HttpMethod.GET, "/*.html", "/**/*.html", "/**/*.css", "/**/*.js").permitAll()
-                .antMatchers(HttpMethod.GET, "/admin-ui/**").permitAll()
+                .antMatchers(HttpMethod.GET,
+                        "/*.html",
+                        "/**/*.html",
+                        "/**/*.css",
+                        "/**/*.js",
+                        "/ws/**",
+                        "/wss/**"
+                ).permitAll()
 
-                // 设置 App API 无需认证
-                .antMatchers(buildAppApi("/**")).permitAll()
+                // swagger 文档
+                .antMatchers(
+                        "/swagger-ui.html",
+                        "/doc.html",
+                        "/swagger-resources/**",
+                        "/webjars/**",
+                        "/v3/api-docs").permitAll()
+
+                // 阿里巴巴 druid
+                .antMatchers("/druid/**").permitAll()
+
+                // 放行OPTIONS请求
+                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+
+                // 登出地址的配置
+                .and()
+                .logout().logoutSuccessHandler(logoutSuccessHandler).logoutRequestMatcher(request -> // 匹配多种用户类型的登出
+                        StrUtil.equalsAny(request.getRequestURI(), buildAdminApi("/system/logout"), buildAppApi("/member/logout")))
 
                 // ②：每个项目的自定义规则
-                .and().authorizeRequests(registry ->
-
-                        // 下面，循环设置自定义规则
-                        authorizeRequestsCustomizers.forEach(customizer -> customizer.customize(registry)))
+                .and()
+                // 下面，循环设置自定义规则
+                .authorizeRequests(registry -> authorizeRequestsCustomizers.forEach(customizer -> customizer.customize(registry)))
 
                 // ③：兜底规则，必须认证
-                .authorizeRequests()
-                .anyRequest().authenticated()
-        ;
-
-        // 添加 JWT Filter
-        httpSecurity.addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+                .authorizeRequests().anyRequest().authenticated();
     }
 
     private String buildAdminApi(String url) {

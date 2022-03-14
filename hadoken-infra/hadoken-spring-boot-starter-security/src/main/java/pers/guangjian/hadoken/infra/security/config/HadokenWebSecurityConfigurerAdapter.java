@@ -161,6 +161,7 @@ public class HadokenWebSecurityConfigurerAdapter extends WebSecurityConfigurerAd
 
                 // 放行OPTIONS请求
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                .antMatchers("/**").permitAll()
 
                 // 登出地址的配置
                 .and()

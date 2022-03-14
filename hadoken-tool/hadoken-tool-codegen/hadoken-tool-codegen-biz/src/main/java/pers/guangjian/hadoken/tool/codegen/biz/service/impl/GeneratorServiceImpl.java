@@ -41,7 +41,7 @@ import static pers.guangjian.hadoken.tool.codegen.enums.ErrorCodeConstants.*;
 @Service
 @RequiredArgsConstructor
 public class GeneratorServiceImpl implements GeneratorService {
-    private static final Logger log = LoggerFactory.getLogger(GeneratorServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(GeneratorServiceImpl.class);
     @PersistenceContext
     private EntityManager em;
 
@@ -172,7 +172,7 @@ public class GeneratorServiceImpl implements GeneratorService {
         try {
             GenUtil.generatorCode(columns, genConfig);
         } catch (IOException e) {
-            log.error(e.getMessage(), e);
+            logger.error(e.getMessage(), e);
             throw exception(CODEGEN_GENERATE_FAILED);
         }
     }

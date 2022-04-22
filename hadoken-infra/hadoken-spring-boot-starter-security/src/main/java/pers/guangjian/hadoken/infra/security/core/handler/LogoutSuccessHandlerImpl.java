@@ -1,14 +1,14 @@
 package pers.guangjian.hadoken.infra.security.core.handler;
 
-import cn.hutool.core.util.StrUtil;
+import lombok.AllArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import pers.guangjian.hadoken.common.result.CommonResult;
+import pers.guangjian.hadoken.common.util.string.StringUtils;
 import pers.guangjian.hadoken.infra.security.config.SecurityProperties;
 import pers.guangjian.hadoken.infra.security.core.authentication.MultiUserDetailsAuthenticationProvider;
 import pers.guangjian.hadoken.infra.security.core.util.SecurityUtils;
 import pers.guangjian.hadoken.infra.web.core.util.ServletUtils;
-import lombok.AllArgsConstructor;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,7 +31,7 @@ public class LogoutSuccessHandlerImpl implements LogoutSuccessHandler {
 
         // 执行退出
         String token = SecurityUtils.obtainAuthorization(request, securityProperties.getTokenHeader());
-        if (StrUtil.isNotBlank(token)) {
+        if (StringUtils.isNotBlank(token)) {
             authenticationProvider.logout(request, token);
         }
 

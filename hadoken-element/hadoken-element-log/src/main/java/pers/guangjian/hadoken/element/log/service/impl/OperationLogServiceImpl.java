@@ -2,7 +2,6 @@ package pers.guangjian.hadoken.element.log.service.impl;
 
 import cn.hutool.core.lang.Dict;
 import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -14,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import pers.guangjian.hadoken.common.util.page.PageUtil;
+import pers.guangjian.hadoken.common.util.string.StringUtils;
 import pers.guangjian.hadoken.common.util.validation.ValidationUtil;
 import pers.guangjian.hadoken.element.log.annotation.Log;
 import pers.guangjian.hadoken.element.log.domain.po.OperationLog;
@@ -106,7 +106,7 @@ public class OperationLogServiceImpl implements OperationLogService {
             if (requestParam != null) {
                 Map<String, Object> map = new HashMap<>(4);
                 String key = parameters[i].getName();
-                if (!StrUtil.isEmpty(requestParam.value())) {
+                if (!StringUtils.isEmpty(requestParam.value())) {
                     key = requestParam.value();
                 }
                 map.put(key, args[i]);

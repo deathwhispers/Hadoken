@@ -56,6 +56,31 @@
         </dependencies>
     </dependencyManagement>
 
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
     <build>
         <pluginManagement>
             <plugins>
@@ -89,14 +114,5 @@
             </plugins>
         </pluginManagement>
     </build>
-
-    <!-- 使用 aliyun 的 Maven 源，提升下载速度 -->
-<!--        <repositories>
-            <repository>
-                <id>aliyunmaven</id>
-                <name>aliyun</name>
-                <url>https://maven.aliyun.com/repository/public</url>
-            </repository>
-        </repositories>-->
 
 </project>

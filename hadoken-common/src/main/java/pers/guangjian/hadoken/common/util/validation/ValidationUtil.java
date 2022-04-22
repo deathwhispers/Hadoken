@@ -2,9 +2,8 @@ package pers.guangjian.hadoken.common.util.validation;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.core.util.StrUtil;
-import org.springframework.util.StringUtils;
 import pers.guangjian.hadoken.common.exception.BadRequestException;
+import pers.guangjian.hadoken.common.util.string.StringUtils;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -24,23 +23,12 @@ public class ValidationUtil {
     private static final Pattern PATTERN_XML_NCNAME = Pattern.compile("[a-zA-Z_][\\-_.0-9_a-zA-Z$]*");
 
     public static boolean isMobile(String mobile) {
-        if (StrUtil.length(mobile) != 11) {
+        if (StringUtils.length(mobile) != 11) {
             return false;
         }
         // TODO 后面完善手机校验
         return true;
     }
-
-    public static boolean isURL(String url) {
-        return StringUtils.hasText(url)
-                && PATTERN_URL.matcher(url).matches();
-    }
-
-    public static boolean isXmlNCName(String str) {
-        return StringUtils.hasText(str)
-                && PATTERN_XML_NCNAME.matcher(str).matches();
-    }
-
 
     /**
      * 验证空

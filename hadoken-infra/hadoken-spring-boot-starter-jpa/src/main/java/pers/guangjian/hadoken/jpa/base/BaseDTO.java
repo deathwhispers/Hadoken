@@ -16,7 +16,7 @@ import java.sql.Timestamp;
 @Setter
 public class BaseDTO {
 
-    private Boolean delete;
+/*    private Boolean delete;*/
 
     private String createBy;
 

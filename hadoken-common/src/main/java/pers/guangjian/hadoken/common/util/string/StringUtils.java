@@ -1,13 +1,29 @@
 package pers.guangjian.hadoken.common.util.string;
 
+import eu.bitwalker.useragentutils.Browser;
+import eu.bitwalker.useragentutils.UserAgent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.servlet.http.HttpServletRequest;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  * @author yanggj
- *  String 工具类
- * @date 2022/03/02 15:22
+ * String 工具类
  * @version 1.0.0
+ * @date 2022/03/02 15:22
  */
 public class StringUtils extends cn.hutool.core.util.StrUtil {
+
+    private static final Logger logger = LoggerFactory.getLogger(StringUtils.class);
+
     private static final char SEPARATOR = '_';
+    private static final String UNKNOWN = "unknown";
+    private static boolean ipLocal = false;
 
     /**
      * 驼峰命名法工具
@@ -87,5 +103,78 @@ public class StringUtils extends cn.hutool.core.util.StrUtil {
         return new String(newCodePoints, 0, outOffset);
     }
 
+    public static String getBrowser(HttpServletRequest request) {
+        UserAgent userAgent = UserAgent.parseUserAgentString(request.getHeader("User-Agent"));
+        Browser browser = userAgent.getBrowser();
+        return browser.getName();
+    }
 
+    /**
+     * 获得当天是周几
+     */
+    public static String getWeekDay() {
+        String[] weekDays = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date());
+
+        int w = cal.get(Calendar.DAY_OF_WEEK) - 1;
+        if (w < 0) {
+            w = 0;
+        }
+        return weekDays[w];
+    }
+
+    /**
+     * 获取当前机器的IP
+     *
+     * @return /
+     */
+    public static String getLocalIp() {
+        InetAddress addr;
+        try {
+            addr = InetAddress.getLocalHost();
+        } catch (UnknownHostException e) {
+            return "unknown";
+        }
+        byte[] ipAddr = addr.getAddress();
+        StringBuilder ipAddrStr = new StringBuilder();
+        for (int i = 0; i < ipAddr.length; i++) {
+            if (i > 0) {
+                ipAddrStr.append(".");
+            }
+            ipAddrStr.append(ipAddr[i] & 0xFF);
+        }
+        return ipAddrStr.toString();
+    }
+
+
+    /**
+     * 获取ip地址
+     */
+    public static String getIp(HttpServletRequest request) {
+        String ip = request.getHeader("x-forwarded-for");
+        if (ip == null || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
+            ip = request.getHeader("Proxy-Client-IP");
+        }
+        if (ip == null || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
+            ip = request.getHeader("WL-Proxy-Client-IP");
+        }
+        if (ip == null || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
+            ip = request.getRemoteAddr();
+        }
+        String comma = ",";
+        String localhost = "127.0.0.1";
+        if (ip.contains(comma)) {
+            ip = ip.split(",")[0];
+        }
+        if (localhost.equals(ip)) {
+            // 获取本机真正的ip地址
+            try {
+                ip = InetAddress.getLocalHost().getHostAddress();
+            } catch (UnknownHostException e) {
+                logger.error(e.getMessage(), e);
+            }
+        }
+        return ip;
+    }
 }

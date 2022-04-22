@@ -2,15 +2,15 @@ package pers.guangjian.hadoken.common.util.io;
 
 import cn.hutool.core.io.IORuntimeException;
 import cn.hutool.core.io.IoUtil;
-import cn.hutool.core.util.StrUtil;
+import pers.guangjian.hadoken.common.util.string.StringUtils;
 
 import java.io.InputStream;
 
 /**
  * @author yanggj
- *  IO 工具类，用于 {@link IoUtil} 缺失的方法
- * @date 2022/02/28 15:51
+ * IO 工具类，用于 {@link IoUtil} 缺失的方法
  * @version 1.0.0
+ * @date 2022/02/28 15:51
  */
 public class IoUtils {
 
@@ -23,7 +23,7 @@ public class IoUtils {
      * @throws IORuntimeException IO 异常
      */
     public static String readUtf8(InputStream in, boolean isClose) throws IORuntimeException {
-        return StrUtil.utf8Str(IoUtil.read(in, isClose));
+        return StringUtils.utf8Str(IoUtil.read(in, isClose));
     }
 
 }

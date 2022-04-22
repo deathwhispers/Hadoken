@@ -1,6 +1,5 @@
 package pers.guangjian.hadoken.infra.security.config;
 
-import cn.hutool.core.util.StrUtil;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -18,6 +17,7 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
+import pers.guangjian.hadoken.common.util.string.StringUtils;
 import pers.guangjian.hadoken.infra.security.core.authentication.MultiUserDetailsAuthenticationProvider;
 import pers.guangjian.hadoken.infra.security.core.filter.JWTAuthenticationTokenFilter;
 import pers.guangjian.hadoken.infra.web.config.WebProperties;
@@ -166,7 +166,7 @@ public class HadokenWebSecurityConfigurerAdapter extends WebSecurityConfigurerAd
                 // 登出地址的配置
                 .and()
                 .logout().logoutSuccessHandler(logoutSuccessHandler).logoutRequestMatcher(request -> // 匹配多种用户类型的登出
-                        StrUtil.equalsAny(request.getRequestURI(), buildAdminApi("/system/logout"), buildAppApi("/member/logout")))
+                        StringUtils.equalsAny(request.getRequestURI(), buildAdminApi("/system/logout"), buildAppApi("/member/logout")))
 
                 // ②：每个项目的自定义规则
                 .and()

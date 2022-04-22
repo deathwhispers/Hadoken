@@ -2,7 +2,6 @@ package pers.guangjian.hadoken.infra.apilog.core.filter;
 
 import cn.hutool.core.exceptions.ExceptionUtil;
 import cn.hutool.core.map.MapUtil;
-import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.servlet.ServletUtil;
 import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -11,6 +10,7 @@ import pers.guangjian.hadoken.common.exception.enums.GlobalErrorCodeConstants;
 import pers.guangjian.hadoken.common.result.CommonResult;
 import pers.guangjian.hadoken.common.util.date.DateUtil;
 import pers.guangjian.hadoken.common.util.monitor.TracerUtils;
+import pers.guangjian.hadoken.common.util.string.StringUtils;
 import pers.guangjian.hadoken.infra.apilog.core.service.ApiAccessLogFrameworkService;
 import pers.guangjian.hadoken.infra.apilog.core.service.dto.ApiAccessLogDTO;
 import pers.guangjian.hadoken.infra.web.config.WebProperties;
@@ -49,7 +49,7 @@ public class ApiAccessLogFilter extends OncePerRequestFilter {
     protected boolean shouldNotFilter(HttpServletRequest request) {
 
         // 只过滤 API 请求的地址
-        return !StrUtil.startWithAny(request.getRequestURI(), webProperties.getAppApi().getPrefix(),
+        return !StringUtils.startWithAny(request.getRequestURI(), webProperties.getAppApi().getPrefix(),
                 webProperties.getAppApi().getPrefix());
     }
 

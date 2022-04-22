@@ -1,7 +1,6 @@
 package pers.guangjian.hadoken.infra.security.core.authentication;
 
 import cn.hutool.core.lang.Assert;
-import cn.hutool.core.util.StrUtil;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -10,6 +9,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import pers.guangjian.hadoken.common.enums.UserTypeEnum;
+import pers.guangjian.hadoken.common.util.string.StringUtils;
 import pers.guangjian.hadoken.infra.security.core.LoginUser;
 import pers.guangjian.hadoken.infra.security.core.service.SecurityAuthFrameworkService;
 import pers.guangjian.hadoken.infra.web.config.WebProperties;
@@ -150,7 +150,7 @@ public class MultiUserDetailsAuthenticationProvider extends AbstractUserDetailsA
         if (request.getRequestURI().startsWith(properties.getAppApi().getPrefix())) {
             return UserTypeEnum.MEMBER;
         }
-        throw new IllegalArgumentException(StrUtil.format("URI({}) 找不到匹配的用户类型", request.getRequestURI()));
+        throw new IllegalArgumentException(StringUtils.format("URI({}) 找不到匹配的用户类型", request.getRequestURI()));
     }
 
 }

@@ -1,8 +1,8 @@
 package pers.guangjian.hadoken.infra.monitor.core.aop;
 
 import cn.hutool.core.map.MapUtil;
-import cn.hutool.core.util.StrUtil;
 import pers.guangjian.hadoken.common.util.spring.SpringExpressionUtils;
+import pers.guangjian.hadoken.common.util.string.StringUtils;
 import pers.guangjian.hadoken.infra.monitor.core.annotation.BizTracer;
 import pers.guangjian.hadoken.infra.monitor.core.util.TracerUtils;
 import io.opentracing.Span;
@@ -62,7 +62,7 @@ public class BizTracerAspect {
     private String getOperationName(ProceedingJoinPoint joinPoint, BizTracer trace) {
 
         // 自定义操作名
-        if (StrUtil.isNotEmpty(trace.operationName())) {
+        if (StringUtils.isNotEmpty(trace.operationName())) {
             return BIZ_OPERATION_NAME_PREFIX + trace.operationName();
         }
 

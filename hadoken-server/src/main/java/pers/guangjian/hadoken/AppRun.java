@@ -2,6 +2,7 @@ package pers.guangjian.hadoken;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 /**
@@ -9,6 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
  * @date 2022/03/04 17:08
  * @version 1.0.0
  */
+@EnableCaching
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")
 @SpringBootApplication
 public class AppRun {

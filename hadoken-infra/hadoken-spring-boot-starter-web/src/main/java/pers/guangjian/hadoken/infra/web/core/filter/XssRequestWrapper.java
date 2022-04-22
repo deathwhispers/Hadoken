@@ -4,8 +4,8 @@ import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.io.IoUtil;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.ReflectUtil;
-import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.HTMLFilter;
+import pers.guangjian.hadoken.common.util.string.StringUtils;
 import pers.guangjian.hadoken.infra.web.core.util.ServletUtils;
 
 import javax.servlet.ReadListener;
@@ -41,7 +41,7 @@ public class XssRequestWrapper extends HttpServletRequestWrapper {
     }
 
     private static String filterXss(String content) {
-        if (StrUtil.isEmpty(content)) {
+        if (StringUtils.isEmpty(content)) {
             return content;
         }
         return HTML_FILTER.get().filter(content);

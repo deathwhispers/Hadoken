@@ -1,6 +1,6 @@
 package pers.guangjian.hadoken.common.util.number;
 
-import cn.hutool.core.util.StrUtil;
+import pers.guangjian.hadoken.common.util.string.StringUtils;
 
 /**
  * @author yanggj
@@ -11,7 +11,7 @@ import cn.hutool.core.util.StrUtil;
 public class NumberUtils {
 
     public static Long parseLong(String str) {
-        return StrUtil.isNotEmpty(str) ? Long.valueOf(str) : null;
+        return StringUtils.isNotEmpty(str) ? Long.valueOf(str) : null;
     }
 
 }

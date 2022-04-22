@@ -69,7 +69,7 @@ public class OperationLog implements Serializable {
     /**
      * 请求耗时
      */
-    private Integer duration;
+    private Long duration;
 
     /**
      * 异常详细
@@ -82,7 +82,7 @@ public class OperationLog implements Serializable {
     @CreationTimestamp
     private Timestamp createTime;
 
-    public OperationLog(String logType, Integer duration) {
+    public OperationLog(String logType, Long duration) {
         this.logType = logType;
         this.duration = duration;
     }

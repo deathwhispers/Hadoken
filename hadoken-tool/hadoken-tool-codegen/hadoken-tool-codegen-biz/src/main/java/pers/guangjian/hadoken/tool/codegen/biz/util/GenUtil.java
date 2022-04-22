@@ -1,6 +1,5 @@
 package pers.guangjian.hadoken.tool.codegen.biz.util;
 
-import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.template.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.ObjectUtils;
@@ -220,8 +219,8 @@ public class GenUtil {
 
         // 判断是否去除表前缀
         if (StringUtils.isNotEmpty(genConfig.getPrefix())) {
-            className = StringUtils.toCapitalizeCamelCase(StrUtil.removePrefix(genConfig.getTableName(), genConfig.getPrefix()));
-            changeClassName = StringUtils.toCamelCase(StrUtil.removePrefix(genConfig.getTableName(), genConfig.getPrefix()));
+            className = StringUtils.toCapitalizeCamelCase(StringUtils.removePrefix(genConfig.getTableName(), genConfig.getPrefix()));
+            changeClassName = StringUtils.toCamelCase(StringUtils.removePrefix(genConfig.getTableName(), genConfig.getPrefix()));
             changeClassName = StringUtils.uncapitalize(changeClassName);
         }
 

@@ -30,8 +30,8 @@ import java.sql.Timestamp;
 @EntityListeners(AuditingEntityListener.class)
 public class BaseEntity {
 
-    @ApiModelProperty(value = "已删除", hidden = true)
-    private Boolean delete;
+/*    @ApiModelProperty(value = "已删除", hidden = true)
+    private Boolean delete;*/
 
     @CreatedBy
     @Column(name = "create_by", updatable = false)

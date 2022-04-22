@@ -1,7 +1,7 @@
 package pers.guangjian.hadoken.infra.security.core.filter;
 
-import cn.hutool.core.util.StrUtil;
 import pers.guangjian.hadoken.common.result.CommonResult;
+import pers.guangjian.hadoken.common.util.string.StringUtils;
 import pers.guangjian.hadoken.infra.security.config.SecurityProperties;
 import pers.guangjian.hadoken.infra.security.core.LoginUser;
 import pers.guangjian.hadoken.infra.security.core.authentication.MultiUserDetailsAuthenticationProvider;
@@ -43,7 +43,7 @@ public class JWTAuthenticationTokenFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
         String token = SecurityUtils.obtainAuthorization(request, securityProperties.getTokenHeader());
-        if (StrUtil.isNotEmpty(token)) {
+        if (StringUtils.isNotEmpty(token)) {
             try {
 
                 // 验证 token 有效性

@@ -18,6 +18,10 @@
             <groupId>pers.guangjian.hadoken</groupId>
             <artifactId>hadoken-spring-boot-starter-jpa</artifactId>
         </dependency>
+        <dependency>
+            <groupId>pers.guangjian.hadoken</groupId>
+            <artifactId>hadoken-spring-boot-starter-redis</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

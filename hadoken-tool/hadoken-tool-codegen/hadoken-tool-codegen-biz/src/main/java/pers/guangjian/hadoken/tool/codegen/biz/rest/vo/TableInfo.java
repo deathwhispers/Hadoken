@@ -1,4 +1,4 @@
-package pers.guangjian.hadoken.tool.codegen.biz.domain.vo;
+package pers.guangjian.hadoken.tool.codegen.biz.rest.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -14,7 +14,7 @@ import pers.guangjian.hadoken.common.util.page.PageUtil;
 import pers.guangjian.hadoken.common.util.string.StringUtils;
 import pers.guangjian.hadoken.tool.codegen.biz.domain.ColumnInfo;
 import pers.guangjian.hadoken.tool.codegen.biz.domain.GenConfig;
-import pers.guangjian.hadoken.tool.codegen.biz.domain.vo.TableInfo;
+import pers.guangjian.hadoken.tool.codegen.biz.rest.vo.TableInfo;
 import pers.guangjian.hadoken.tool.codegen.biz.repository.ColumnInfoRepository;
 import pers.guangjian.hadoken.tool.codegen.biz.service.GeneratorService;
 import pers.guangjian.hadoken.tool.codegen.biz.util.GenUtil;

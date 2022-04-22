@@ -1,10 +1,15 @@
 package pers.guangjian.hadoken.common.util.validation;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import org.springframework.util.StringUtils;
 import pers.guangjian.hadoken.common.exception.BadRequestException;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+import javax.validation.Validator;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 /**
@@ -53,4 +58,12 @@ public class ValidationUtil {
     public static boolean isEmail(String email) {
         return true;
     }
+
+    public static void validate(Validator validator, Object object, Class<?>... groups) {
+        Set<ConstraintViolation<Object>> constraintViolations = validator.validate(object, groups);
+        if (CollUtil.isNotEmpty(constraintViolations)) {
+            throw new ConstraintViolationException(constraintViolations);
+        }
+    }
+
 }

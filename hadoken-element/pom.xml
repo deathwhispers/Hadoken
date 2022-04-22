@@ -22,4 +22,15 @@
         <module>hadoken-element-system</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>pers.guangjian.hadoken</groupId>
+            <artifactId>hadoken-spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>pers.guangjian.hadoken</groupId>
+            <artifactId>hadoken-spring-boot-starter-jpa</artifactId>
+        </dependency>
+    </dependencies>
 </project>

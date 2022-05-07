@@ -18,7 +18,6 @@ package pers.guangjian.hadoken.element.security.core.service.dto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import me.zhengjie.modules.system.service.dto.UserDto;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import pers.guangjian.hadoken.element.system.service.dto.UserDto;

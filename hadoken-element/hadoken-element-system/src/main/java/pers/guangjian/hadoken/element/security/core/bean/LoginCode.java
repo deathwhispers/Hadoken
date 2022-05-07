@@ -18,8 +18,8 @@ package pers.guangjian.hadoken.element.security.core.bean;
 /**
  * 登录验证码配置信息
  *
- * @author: liaojinlong
- * @date: 2020/6/10 18:53
+ * @author liaojinlong
+ * @date 2020/6/10 18:53
  */
 public class LoginCode {
     /**

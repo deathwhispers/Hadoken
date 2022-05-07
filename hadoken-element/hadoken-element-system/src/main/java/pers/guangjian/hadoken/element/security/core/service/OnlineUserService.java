@@ -22,6 +22,7 @@ import pers.guangjian.hadoken.common.util.EncryptUtils;
 import pers.guangjian.hadoken.common.util.io.FileUtil;
 import pers.guangjian.hadoken.common.util.page.PageUtil;
 import pers.guangjian.hadoken.common.util.string.StringUtils;
+import pers.guangjian.hadoken.element.security.core.bean.SecurityProperties;
 import pers.guangjian.hadoken.element.security.core.service.dto.JwtUserDto;
 import pers.guangjian.hadoken.element.security.core.service.dto.OnlineUserDto;
 import pers.guangjian.hadoken.infra.redis.util.RedisUtils;
@@ -57,7 +58,8 @@ public class OnlineUserService {
         String dept = jwtUserDto.getUser().getDept().getName();
         String ip = StringUtils.getIp(request);
         String browser = StringUtils.getBrowser(request);
-        String address = StringUtils.getCityInfo(ip);
+        //String address = StringUtils.getCityInfo(ip);
+        String address = StringUtils.EMPTY;
         OnlineUserDto onlineUserDto = null;
         try {
             onlineUserDto = new OnlineUserDto(jwtUserDto.getUsername(), jwtUserDto.getUser().getNickName(), dept, browser , ip, address, EncryptUtils.desEncrypt(token), new Date());

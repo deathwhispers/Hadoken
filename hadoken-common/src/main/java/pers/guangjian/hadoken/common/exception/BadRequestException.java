@@ -5,8 +5,9 @@ import org.springframework.http.HttpStatus;
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
 /**
- * @author yanggj
  * 统一异常处理
+ *
+ * @author yanggj
  * @version 1.0.0
  * @date 2022/03/03 11:29
  */

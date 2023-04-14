@@ -1,20 +1,21 @@
 package pers.guangjian.hadoken.common.result;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+import org.springframework.util.Assert;
 import pers.guangjian.hadoken.common.exception.ErrorCode;
 import pers.guangjian.hadoken.common.exception.HadokenServiceException;
 import pers.guangjian.hadoken.common.exception.enums.GlobalErrorCodeConstants;
-import lombok.Data;
-import org.springframework.util.Assert;
 
 import java.io.Serializable;
 import java.util.Objects;
 
 /**
+ * 通用返回对象
+ *
  * @author yanggj
- *  通用返回对象
- * @date 2022/02/28 15:21
  * @version 1.0.0
+ * @date 2022/02/28 15:21
  */
 @Data
 public class CommonResult<T> implements Serializable {
@@ -49,6 +50,7 @@ public class CommonResult<T> implements Serializable {
         result.msg = message;
         return result;
     }
+
     public static <T> CommonResult<T> error(ErrorCode errorCode) {
         return error(errorCode.getCode(), errorCode.getMsg());
     }
@@ -60,6 +62,7 @@ public class CommonResult<T> implements Serializable {
         result.msg = "";
         return result;
     }
+
     public static boolean isSuccess(Integer code) {
         return Objects.equals(code, GlobalErrorCodeConstants.SUCCESS.getCode());
     }

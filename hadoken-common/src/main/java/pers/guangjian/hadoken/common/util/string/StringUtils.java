@@ -1,8 +1,5 @@
 package pers.guangjian.hadoken.common.util.string;
 
-import cn.hutool.http.HttpUtil;
-import cn.hutool.json.JSONObject;
-import cn.hutool.json.JSONUtil;
 import eu.bitwalker.useragentutils.Browser;
 import eu.bitwalker.useragentutils.UserAgent;
 import org.slf4j.Logger;
@@ -15,8 +12,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * @author yanggj
  * String 工具类
+ *
+ * @author yanggj
  * @version 1.0.0
  * @date 2022/03/02 15:22
  */

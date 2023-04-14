@@ -3,10 +3,11 @@ package pers.guangjian.hadoken.common.core;
 import lombok.Data;
 
 /**
+ * Key Value 的键值对
+ *
  * @author yanggj
- *  Key Value 的键值对
- * @date 2022/02/28 15:53
  * @version 1.0.0
+ * @date 2022/02/28 15:53
  */
 @Data
 public class KeyValue<K, V> {

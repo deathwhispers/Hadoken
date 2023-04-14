@@ -7,8 +7,9 @@ import pers.guangjian.hadoken.common.util.string.StringUtils;
 import java.io.InputStream;
 
 /**
- * @author yanggj
  * IO 工具类，用于 {@link IoUtil} 缺失的方法
+ *
+ * @author yanggj
  * @version 1.0.0
  * @date 2022/02/28 15:51
  */

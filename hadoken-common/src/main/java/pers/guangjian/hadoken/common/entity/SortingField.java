@@ -3,11 +3,12 @@ package pers.guangjian.hadoken.common.entity;
 import java.io.Serializable;
 
 /**
- * @author yanggj
- *  排序字段 DTO
+ * 排序字段 DTO
  * 类名加了 ing 的原因是，避免和 ES SortField 重名。
- * @date 2022/02/28 15:54
+ *
+ * @author yanggj
  * @version 1.0.0
+ * @date 2022/02/28 15:54
  */
 public class SortingField implements Serializable {
 

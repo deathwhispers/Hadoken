@@ -3,10 +3,11 @@ package pers.guangjian.hadoken.common.util.monitor;
 import org.apache.skywalking.apm.toolkit.trace.TraceContext;
 
 /**
+ * 链路追踪工具类
+ *
  * @author yanggj
- *  链路追踪工具类
- * @date 2022/02/28 16:06
  * @version 1.0.0
+ * @date 2022/02/28 16:06
  */
 public class TracerUtils {
 

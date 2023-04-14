@@ -9,10 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 分页结果
+ *
  * @author yanggj
- *  分页结果
- * @date 2022/02/28 15:54
  * @version 1.0.0
+ * @date 2022/02/28 15:54
  */
 @ApiModel("分页结果")
 @Data

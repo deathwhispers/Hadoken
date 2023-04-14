@@ -1,16 +1,17 @@
 package pers.guangjian.hadoken.common.exception;
 
+import lombok.Data;
 import pers.guangjian.hadoken.common.exception.enums.GlobalErrorCodeConstants;
 import pers.guangjian.hadoken.common.exception.enums.ServiceErrorCodeRange;
-import lombok.Data;
 
 /**
- * @author yanggj
- *  错误码对象
+ * 错误码对象
  * 全局错误码，占用 [0, 999], 参见 {@link GlobalErrorCodeConstants}
  * 业务异常错误码，占用 [1 000 000 000, +∞)，参见 {@link ServiceErrorCodeRange}
- * @date 2022/02/28 15:28
+ *
+ * @author yanggj
  * @version 1.0.0
+ * @date 2022/02/28 15:28
  */
 @Data
 public class ErrorCode {

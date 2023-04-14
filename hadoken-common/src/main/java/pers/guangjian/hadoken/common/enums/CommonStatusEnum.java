@@ -3,10 +3,11 @@ package pers.guangjian.hadoken.common.enums;
 import lombok.Getter;
 
 /**
+ * 通用状态枚举
+ *
  * @author yanggj
- *  通用状态枚举
- * @date 2022/02/28 15:51
  * @version 1.0.0
+ * @date 2022/02/28 15:51
  */
 @Getter
 public enum CommonStatusEnum {

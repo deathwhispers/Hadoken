@@ -9,10 +9,11 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 /**
+ * 分页参数
+ *
  * @author yanggj
- *  分页参数
- * @date 2022/02/28 15:54
  * @version 1.0.0
+ * @date 2022/02/28 15:54
  */
 @ApiModel("分页参数")
 @Data

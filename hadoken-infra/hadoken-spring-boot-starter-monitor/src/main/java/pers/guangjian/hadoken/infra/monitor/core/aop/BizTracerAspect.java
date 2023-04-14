@@ -1,10 +1,6 @@
 package pers.guangjian.hadoken.infra.monitor.core.aop;
 
 import cn.hutool.core.map.MapUtil;
-import pers.guangjian.hadoken.common.util.spring.SpringExpressionUtils;
-import pers.guangjian.hadoken.common.util.string.StringUtils;
-import pers.guangjian.hadoken.infra.monitor.core.annotation.BizTracer;
-import pers.guangjian.hadoken.infra.monitor.core.util.TracerUtils;
 import io.opentracing.Span;
 import io.opentracing.Tracer;
 import io.opentracing.tag.Tags;
@@ -12,16 +8,21 @@ import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import pers.guangjian.hadoken.common.util.spring.SpringExpressionUtils;
+import pers.guangjian.hadoken.common.util.string.StringUtils;
+import pers.guangjian.hadoken.infra.monitor.core.annotation.BizTracer;
+import pers.guangjian.hadoken.infra.monitor.core.util.TracerUtils;
 
 import java.util.Map;
 
 import static java.util.Arrays.asList;
 
 /**
+ * 链路追踪 切面 记录业务链路
+ *
  * @author yanggj
- *  链路追踪 切面 记录业务链路
- * @date 2022/03/02 10:50
  * @version 1.0.0
+ * @date 2022/03/02 10:50
  */
 @Aspect
 @Slf4j

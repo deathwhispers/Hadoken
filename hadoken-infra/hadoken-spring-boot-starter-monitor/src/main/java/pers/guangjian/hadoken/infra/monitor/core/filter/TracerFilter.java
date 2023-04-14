@@ -1,7 +1,7 @@
 package pers.guangjian.hadoken.infra.monitor.core.filter;
 
-import pers.guangjian.hadoken.common.util.monitor.TracerUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
+import pers.guangjian.hadoken.common.util.monitor.TracerUtils;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -10,10 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * Trace 过滤器，打印 traceId 到 header 中返回
+ *
  * @author yanggj
- *  Trace 过滤器，打印 traceId 到 header 中返回
- * @date 2022/03/02 10:51
  * @version 1.0.0
+ * @date 2022/03/02 10:51
  */
 public class TracerFilter extends OncePerRequestFilter {
 

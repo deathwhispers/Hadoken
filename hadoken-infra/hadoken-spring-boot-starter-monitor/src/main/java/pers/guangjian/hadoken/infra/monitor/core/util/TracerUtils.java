@@ -9,10 +9,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * Trace 工具类
+ *
  * @author yanggj
- *  Trace 工具类
- * @date 2022/03/02 10:51
  * @version 1.0.0
+ * @date 2022/03/02 10:51
  */
 public class TracerUtils {
 
@@ -20,7 +21,7 @@ public class TracerUtils {
      * 将异常记录到 Span 中，参考自 com.aliyuncs.utils.TraceUtils
      *
      * @param throwable 异常
-     * @param span Span
+     * @param span      Span
      */
     public static void onError(Throwable throwable, Span span) {
         Tags.ERROR.set(span, Boolean.TRUE);

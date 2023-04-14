@@ -5,10 +5,11 @@ import pers.guangjian.hadoken.infra.apilog.core.service.dto.ApiAccessLogDTO;
 import javax.validation.Valid;
 
 /**
+ * API 访问日志接口
+ *
  * @author yanggj
- *  API 访问日志接口
- * @date 2022/03/02 9:28
  * @version 1.0.0
+ * @date 2022/03/02 9:28
  */
 public interface ApiAccessLogFrameworkService {
 

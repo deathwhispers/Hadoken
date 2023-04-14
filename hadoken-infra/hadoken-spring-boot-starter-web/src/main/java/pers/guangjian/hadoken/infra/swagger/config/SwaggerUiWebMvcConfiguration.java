@@ -18,9 +18,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * @author yanggj
- *  /
- * @date 2022/3/2 20:09
  * @version 1.0.0
+ * @date 2022/3/2 20:09
  */
 @Configuration
 @EnableSwagger2

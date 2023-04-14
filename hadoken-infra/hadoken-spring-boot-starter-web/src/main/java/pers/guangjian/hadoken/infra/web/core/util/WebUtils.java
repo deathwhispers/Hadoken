@@ -9,10 +9,11 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
 /**
+ * web 包的工具类
+ *
  * @author yanggj
- *  web 包的工具类
- * @date 2022/03/01 9:05
  * @version 1.0.0
+ * @date 2022/03/01 9:05
  */
 public class WebUtils {
 

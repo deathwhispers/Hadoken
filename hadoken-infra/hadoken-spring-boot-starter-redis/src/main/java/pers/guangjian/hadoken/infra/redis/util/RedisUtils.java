@@ -30,6 +30,8 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * Redis 工具类
+ *
  * @author /
  */
 @Component

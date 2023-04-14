@@ -8,10 +8,11 @@ import lombok.Getter;
 import java.time.Duration;
 
 /**
+ * Redis Key 定义类
+ *
  * @author yanggj
- *  Redis Key 定义类
- * @date 2022/03/02 11:07
  * @version 1.0.0
+ * @date 2022/03/02 11:07
  */
 @Data
 public class RedisKeyDefinition {

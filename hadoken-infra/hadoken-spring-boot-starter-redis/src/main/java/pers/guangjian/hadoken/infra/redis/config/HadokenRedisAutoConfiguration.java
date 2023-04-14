@@ -1,19 +1,14 @@
 package pers.guangjian.hadoken.infra.redis.config;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cache.Cache;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.CacheErrorHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
-import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
@@ -22,8 +17,9 @@ import org.springframework.data.redis.serializer.RedisSerializer;
 import java.time.Duration;
 
 /**
- * @author yanggj
  * Redis 配置类
+ *
+ * @author yanggj
  * @version 1.0.0
  * @date 2022/03/02 11:06
  */
@@ -35,11 +31,11 @@ import java.time.Duration;
 public class HadokenRedisAutoConfiguration extends CachingConfigurerSupport {
 
     /**
-     *  设置 redis 数据默认过期时间，默认2小时
-     *  设置@cacheable 序列化方式
+     * 设置 redis 数据默认过期时间，默认2小时
+     * 设置@cacheable 序列化方式
      */
     @Bean
-    public RedisCacheConfiguration redisCacheConfiguration(){
+    public RedisCacheConfiguration redisCacheConfiguration() {
         Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
         RedisCacheConfiguration configuration = RedisCacheConfiguration.defaultCacheConfig();
         configuration = configuration.serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(jackson2JsonRedisSerializer)).entryTtl(Duration.ofHours(2));

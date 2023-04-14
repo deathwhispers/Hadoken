@@ -3,10 +3,11 @@ package pers.guangjian.hadoken.jpa.base;
 import java.util.List;
 
 /**
+ * 对象转换
+ *
  * @author yanggj
- *  对象转换
- * @date 2022/03/09 9:24
  * @version 1.0.0
+ * @date 2022/03/09 9:24
  */
 public interface BaseMapper<D, E> {
 

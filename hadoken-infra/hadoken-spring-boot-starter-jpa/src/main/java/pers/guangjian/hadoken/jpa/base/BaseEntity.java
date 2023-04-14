@@ -17,10 +17,11 @@ import java.lang.reflect.Field;
 import java.sql.Timestamp;
 
 /**
+ * 通用字段
+ *
  * @author yanggj
- *  通用字段
- * @date 2022/03/09 9:23
  * @version 1.0.0
+ * @date 2022/03/09 9:23
  */
 @Getter
 @Setter

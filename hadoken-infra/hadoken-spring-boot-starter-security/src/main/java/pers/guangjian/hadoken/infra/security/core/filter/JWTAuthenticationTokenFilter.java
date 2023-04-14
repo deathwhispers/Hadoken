@@ -1,5 +1,6 @@
 package pers.guangjian.hadoken.infra.security.core.filter;
 
+import org.springframework.web.filter.OncePerRequestFilter;
 import pers.guangjian.hadoken.common.result.CommonResult;
 import pers.guangjian.hadoken.common.util.string.StringUtils;
 import pers.guangjian.hadoken.infra.security.config.SecurityProperties;
@@ -8,7 +9,6 @@ import pers.guangjian.hadoken.infra.security.core.authentication.MultiUserDetail
 import pers.guangjian.hadoken.infra.security.core.util.SecurityUtils;
 import pers.guangjian.hadoken.infra.web.core.handler.GlobalExceptionHandler;
 import pers.guangjian.hadoken.infra.web.core.util.ServletUtils;
-import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -17,11 +17,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * @author yanggj
- *  JWT 过滤器，验证 token 的有效性
+ * JWT 过滤器，验证 token 的有效性
  * 验证通过后，获得 {@link LoginUser} 信息，并加入到 Spring Security 上下文
- * @date 2022/03/01 18:28
+ *
+ * @author yanggj
  * @version 1.0.0
+ * @date 2022/03/01 18:28
  */
 public class JWTAuthenticationTokenFilter extends OncePerRequestFilter {
     private final SecurityProperties securityProperties;

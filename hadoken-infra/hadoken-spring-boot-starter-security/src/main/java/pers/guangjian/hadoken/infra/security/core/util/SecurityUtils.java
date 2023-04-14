@@ -22,8 +22,9 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author yanggj
  * 安全服务工具类
+ *
+ * @author yanggj
  * @version 1.0.0
  * @date 2022/03/01 18:15
  */

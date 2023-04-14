@@ -29,7 +29,7 @@ import java.util.Map;
  * 实际上，它就是 {@link SecurityAuthFrameworkService} 定义的三个接口。
  * 因为需要支持多种类型，所以需要根据请求的 URL，判断出对应的用户类型，从而使用对应的 SecurityAuthFrameworkService 是吸纳
  *
- * @author 芋道源码
+ * @author yanggj
  * @see UserTypeEnum
  */
 public class MultiUserDetailsAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {

@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 /**
  * Security 框架 Auth Service 接口，定义不同用户类型的 {@link UserTypeEnum} 需要实现的方法
  *
- * @author 芋道源码
+ * @author yanggj
  */
 public interface SecurityAuthFrameworkService extends UserDetailsService {
 

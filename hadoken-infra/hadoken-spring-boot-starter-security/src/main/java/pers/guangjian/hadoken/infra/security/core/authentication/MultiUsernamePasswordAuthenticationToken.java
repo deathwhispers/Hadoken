@@ -10,7 +10,7 @@ import java.util.Collection;
 /**
  * 支持多用户的 UsernamePasswordAuthenticationToken 实现类
  *
- * @author 芋道源码
+ * @author yanggj
  */
 @Getter
 public class MultiUsernamePasswordAuthenticationToken extends UsernamePasswordAuthenticationToken {

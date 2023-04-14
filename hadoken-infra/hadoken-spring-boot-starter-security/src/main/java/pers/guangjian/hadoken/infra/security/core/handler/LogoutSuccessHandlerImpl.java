@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 自定义退出处理器
  *
- * @author ruoyi
+ * @author yanggj
  */
 @AllArgsConstructor
 public class LogoutSuccessHandlerImpl implements LogoutSuccessHandler {

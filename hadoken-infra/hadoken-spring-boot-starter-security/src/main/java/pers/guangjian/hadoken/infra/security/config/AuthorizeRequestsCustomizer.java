@@ -9,11 +9,12 @@ import pers.guangjian.hadoken.infra.web.config.WebProperties;
 import javax.annotation.Resource;
 
 /**
- * @author yanggj
  * <p>
  * 自定义的 URL 的安全配置
  * 目的：每个 Maven Module 可以自定义规则！
  * </p>
+ *
+ * @author yanggj
  * @version 1.0.0
  * @date 2022/03/02 9:38
  */

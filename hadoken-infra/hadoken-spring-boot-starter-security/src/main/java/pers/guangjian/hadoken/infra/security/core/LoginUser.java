@@ -2,19 +2,20 @@ package pers.guangjian.hadoken.infra.security.core;
 
 import cn.hutool.core.map.MapUtil;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import pers.guangjian.hadoken.common.enums.CommonStatusEnum;
-import pers.guangjian.hadoken.common.enums.UserTypeEnum;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import pers.guangjian.hadoken.common.enums.CommonStatusEnum;
+import pers.guangjian.hadoken.common.enums.UserTypeEnum;
 
 import java.util.*;
 
 /**
+ * 登录用户信息
+ *
  * @author yanggj
- *  登录用户信息
- * @date 2022/03/01 18:16
  * @version 1.0.0
+ * @date 2022/03/01 18:16
  */
 @Data
 public class LoginUser implements UserDetails {
@@ -26,7 +27,7 @@ public class LoginUser implements UserDetails {
 
     /**
      * 用户类型
-     *
+     * <p>
      * 关联 {@link UserTypeEnum}
      */
     private Integer userType;
@@ -69,7 +70,7 @@ public class LoginUser implements UserDetails {
     // ========== 上下文 ==========
     /**
      * 上下文字段，不进行持久化
-     *
+     * <p>
      * 1. 用于基于 LoginUser 维度的临时缓存
      */
     @JsonIgnore

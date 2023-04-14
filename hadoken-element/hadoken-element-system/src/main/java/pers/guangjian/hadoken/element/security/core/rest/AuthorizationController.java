@@ -34,13 +34,12 @@ import pers.guangjian.hadoken.common.exception.BadRequestException;
 import pers.guangjian.hadoken.common.util.RsaUtils;
 import pers.guangjian.hadoken.common.util.string.StringUtils;
 import pers.guangjian.hadoken.element.log.annotation.Log;
-import pers.guangjian.hadoken.element.security.core.TokenProvider;
 import pers.guangjian.hadoken.element.security.core.bean.LoginProperties;
-import pers.guangjian.hadoken.element.security.core.bean.SecurityProperties;
 import pers.guangjian.hadoken.element.security.core.service.OnlineUserService;
 import pers.guangjian.hadoken.element.security.core.service.dto.AuthUserDto;
 import pers.guangjian.hadoken.element.security.core.service.dto.JwtUserDto;
 import pers.guangjian.hadoken.infra.redis.util.RedisUtils;
+import pers.guangjian.hadoken.infra.security.config.SecurityProperties;
 import pers.guangjian.hadoken.infra.security.core.util.SecurityUtils;
 
 import javax.annotation.Resource;
@@ -63,7 +62,6 @@ public class AuthorizationController {
     private final SecurityProperties properties;
     private final RedisUtils redisUtils;
     private final OnlineUserService onlineUserService;
-    private final TokenProvider tokenProvider;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     @Resource
     private LoginProperties loginProperties;
@@ -90,13 +88,13 @@ public class AuthorizationController {
         Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         // 生成令牌
-        String token = tokenProvider.createToken(authentication);
+        String token = "";
         final JwtUserDto jwtUserDto = (JwtUserDto) authentication.getPrincipal();
         // 保存在线信息
         onlineUserService.save(jwtUserDto, token, request);
         // 返回 token 与 用户信息
         Map<String, Object> authInfo = new HashMap<String, Object>(2) {{
-            put("token", properties.getTokenStartWith() + token);
+            put("token", properties.getTokenHeader() + token);
             put("user", jwtUserDto);
         }};
         if (loginProperties.isSingleLogin()) {
@@ -117,7 +115,7 @@ public class AuthorizationController {
     public ResponseEntity<Object> getCode() {
         // 获取运算的结果
         Captcha captcha = loginProperties.getCaptcha();
-        String uuid = properties.getCodeKey() + IdUtil.simpleUUID();
+        String uuid = properties.getTokenSecret() + IdUtil.simpleUUID();
         // 保存
         redisUtils.set(uuid, captcha.text(), loginProperties.getLoginCode().getExpiration(), TimeUnit.MINUTES);
         // 验证码信息
@@ -131,7 +129,7 @@ public class AuthorizationController {
     @ApiOperation("退出登录")
     @DeleteMapping(value = "/logout")
     public ResponseEntity<Object> logout(HttpServletRequest request) {
-        onlineUserService.logout(tokenProvider.getToken(request));
+        onlineUserService.logout("");
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

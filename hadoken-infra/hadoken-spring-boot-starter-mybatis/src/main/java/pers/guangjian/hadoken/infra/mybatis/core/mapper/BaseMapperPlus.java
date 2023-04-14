@@ -6,19 +6,20 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
+import org.apache.ibatis.annotations.Param;
 import pers.guangjian.hadoken.common.entity.PageParam;
 import pers.guangjian.hadoken.common.entity.PageResult;
 import pers.guangjian.hadoken.infra.mybatis.core.util.MyBatisUtils;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.Collection;
 import java.util.List;
 
 /**
+ * 对 BaseMapper 进行拓展，提供更多的能力
+ *
  * @author yanggj
- *  对 BaseMapper 进行拓展，提供更多的能力
- * @date 2022/02/28 15:04
  * @version 1.0.0
+ * @date 2022/02/28 15:04
  */
 public interface BaseMapperPlus<T> extends BaseMapper<T> {
     default PageResult<T> selectPage(PageParam pageParam, @Param("ew") Wrapper<T> queryWrapper) {
@@ -74,7 +75,6 @@ public interface BaseMapperPlus<T> extends BaseMapper<T> {
     }
 
     default void insertBatch(Collection<T> entities) {
-        // TODO 芋艿：修改成支持批量的
         entities.forEach(this::insert);
     }
 

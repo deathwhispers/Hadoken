@@ -1,10 +1,11 @@
 package pers.guangjian.hadoken.infra.datasource.core.enums;
 
 /**
+ * 对应于多数据源中不同数据源配置
+ *
  * @author yanggj
- *  对应于多数据源中不同数据源配置
- * @date 2022/02/28 14:53
  * @version 1.0.0
+ * @date 2022/02/28 14:53
  */
 public interface DataSourceEnum {
 

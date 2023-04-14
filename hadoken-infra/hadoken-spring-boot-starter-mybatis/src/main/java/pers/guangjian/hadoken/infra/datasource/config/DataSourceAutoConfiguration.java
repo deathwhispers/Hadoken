@@ -1,19 +1,20 @@
 package pers.guangjian.hadoken.infra.datasource.config;
 
 import com.alibaba.druid.spring.boot.autoconfigure.properties.DruidStatProperties;
-import pers.guangjian.hadoken.infra.datasource.core.filter.DruidAdRemoveFilter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import pers.guangjian.hadoken.infra.datasource.core.filter.DruidAdRemoveFilter;
 
 /**
+ * 数据库配置类
+ *
  * @author yanggj
- *  数据库配置类
- * @date 2022/02/28 14:51
  * @version 1.0.0
+ * @date 2022/02/28 14:51
  */
 @Configuration
 @EnableConfigurationProperties(DruidStatProperties.class)

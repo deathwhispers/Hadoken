@@ -9,8 +9,9 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * @author yanggj
  * 基础实体对象
+ *
+ * @author yanggj
  * @version 1.0.0
  * @date 2022/02/28 14:58
  */

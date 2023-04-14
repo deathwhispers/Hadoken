@@ -5,11 +5,11 @@ import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.InnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import pers.guangjian.hadoken.common.entity.PageParam;
-import pers.guangjian.hadoken.common.entity.SortingField;
 import net.sf.jsqlparser.expression.Alias;
 import net.sf.jsqlparser.schema.Column;
 import net.sf.jsqlparser.schema.Table;
+import pers.guangjian.hadoken.common.entity.PageParam;
+import pers.guangjian.hadoken.common.entity.SortingField;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,10 +17,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * MyBatis 工具类
+ *
  * @author yanggj
- *  MyBatis 工具类
- * @date 2022/02/28 15:12
  * @version 1.0.0
+ * @date 2022/02/28 15:12
  */
 public class MyBatisUtils {
 

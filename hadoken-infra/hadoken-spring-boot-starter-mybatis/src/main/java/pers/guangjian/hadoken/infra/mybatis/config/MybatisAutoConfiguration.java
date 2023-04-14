@@ -3,17 +3,18 @@ package pers.guangjian.hadoken.infra.mybatis.config;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
-import pers.guangjian.hadoken.infra.mybatis.core.handler.DefaultDBFieldHandler;
 import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import pers.guangjian.hadoken.infra.mybatis.core.handler.DefaultDBFieldHandler;
 
 /**
+ * Mybatis 配置类
+ *
  * @author yanggj
- *  Mybatis 配置类
- * @date 2022/02/28 14:55
  * @version 1.0.0
+ * @date 2022/02/28 14:55
  */
 @Configuration
 // Mapper 懒加载，目前仅用于单元测试

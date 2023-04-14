@@ -12,4 +12,18 @@
     <name>hadoken-connector-tcp</name>
     <description>hadoken-connector-tcp</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>pers.guangjian.hadoken</groupId>
+            <artifactId>hadoken-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>pers.guangjian.hadoken</groupId>
+            <artifactId>hadoken-spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+        </dependency>
+    </dependencies>
 </project>

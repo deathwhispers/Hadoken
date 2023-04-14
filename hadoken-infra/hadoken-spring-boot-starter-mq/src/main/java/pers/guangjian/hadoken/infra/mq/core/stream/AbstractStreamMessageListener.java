@@ -17,12 +17,13 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 /**
+ * * Redis Stream 监听器抽象类，用于实现集群消费
+ *
  * @author yanggj
- *  * Redis Stream 监听器抽象类，用于实现集群消费
  * *
  * * @param <T> 消息类型。一定要填写噢，不然会报错
- * @date 2022/03/02 11:53
  * @version 1.0.0
+ * @date 2022/03/02 11:53
  */
 public abstract class AbstractStreamMessageListener<T extends AbstractStreamMessage>
         implements StreamListener<String, ObjectRecord<String, String>> {

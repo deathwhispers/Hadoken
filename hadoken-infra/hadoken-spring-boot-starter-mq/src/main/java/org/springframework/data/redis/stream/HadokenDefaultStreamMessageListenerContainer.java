@@ -12,12 +12,13 @@ import java.util.List;
 import java.util.function.Function;
 
 /**
- * @author yanggj
- *  拓展 DefaultStreamMessageListenerContainer 实现，解决 Spring Data Redis + Redisson 结合使用时，Redisson 在 Stream 获得不到数据时，返回 null 而不是空 List，导致 NPE 异常。
+ * 拓展 DefaultStreamMessageListenerContainer 实现，解决 Spring Data Redis + Redisson 结合使用时，Redisson 在 Stream 获得不到数据时，返回 null 而不是空 List，导致 NPE 异常。
  * 对应 issue：https://github.com/spring-projects/spring-data-redis/issues/2147 和 https://github.com/redisson/redisson/issues/4006
  * 目前看下来 Spring Data Redis 不肯加 null 判断，Redisson 暂时也没改返回 null 到空 List 的打算，所以暂时只能自己改，哽咽！
- * @date 2022/03/02 13:47
+ *
+ * @author yanggj
  * @version 1.0.0
+ * @date 2022/03/02 13:47
  */
 public class HadokenDefaultStreamMessageListenerContainer<K, V extends Record<K, ?>> extends DefaultStreamMessageListenerContainer<K, V> {
 

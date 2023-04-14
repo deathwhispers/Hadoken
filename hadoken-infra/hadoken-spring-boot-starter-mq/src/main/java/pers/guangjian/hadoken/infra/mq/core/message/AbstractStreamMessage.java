@@ -3,10 +3,11 @@ package pers.guangjian.hadoken.infra.mq.core.message;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
+ * Redis Stream Message 抽象类
+ *
  * @author yanggj
- *  Redis Stream Message 抽象类
- * @date 2022/03/02 11:52
  * @version 1.0.0
+ * @date 2022/03/02 11:52
  */
 public abstract class AbstractStreamMessage extends AbstractRedisMessage {
 

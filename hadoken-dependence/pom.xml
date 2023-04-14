@@ -16,16 +16,16 @@
         <revision>1.0.0</revision>
 
         <!-- 统一依赖管理 -->
-        <spring.boot.version>2.5.9</spring.boot.version>
+        <spring.boot.version>2.7.10</spring.boot.version>
         <spring.fox.version>3.0.0</spring.fox.version>
-        <knife4j.version>3.0.2</knife4j.version>
+        <knife4j.version>3.0.3</knife4j.version>
 
         <!-- DB 相关 -->
-        <mysql.version>5.1.46</mysql.version>
-        <druid.version>1.2.8</druid.version>
-        <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
-        <dynamic-datasource.version>3.5.0</dynamic-datasource.version>
-        <redisson.version>3.16.6</redisson.version>
+        <mysql.version>8.0.28</mysql.version>
+        <druid.version>1.2.17</druid.version>
+        <mybatis-plus.version>3.5.2</mybatis-plus.version>
+        <dynamic-datasource.version>3.5.2</dynamic-datasource.version>
+        <redisson.version>3.17.7</redisson.version>
 
         <!-- 服务保障相关 -->
         <lock4j.version>2.2.0</lock4j.version>
@@ -33,11 +33,11 @@
 
         <!-- 监控相关 -->
         <skywalking.version>8.7.0</skywalking.version>
-        <spring-boot-admin.version>2.6.2</spring-boot-admin.version>
+        <spring-boot-admin.version>2.7.10</spring-boot-admin.version>
         <opentracing.version>0.31.0</opentracing.version>
 
         <!-- Config 配置中心相关 -->
-        <apollo.version>1.7.0</apollo.version>
+        <apollo.version>2.0.1</apollo.version>
         <configuration.version>1.9</configuration.version>
 
         <!-- 测试相关 -->
@@ -47,9 +47,9 @@
         <log4jdbc.version>1.16</log4jdbc.version>
         <commons-pool2.version>2.5.0</commons-pool2.version>
         <lombok.version>1.18.20</lombok.version>
-        <mapstruct.version>1.4.1.Final</mapstruct.version>
-        <hutool.version>5.6.1</hutool.version>
-        <easyexcel.verion>2.2.7</easyexcel.verion>
+        <mapstruct.version>1.5.3.Final</mapstruct.version>
+        <hutool.version>5.8.15</hutool.version>
+        <easyexcel.verion>3.0.5</easyexcel.verion>
         <velocity.version>2.2</velocity.version>
         <screw.version>1.0.5</screw.version>
         <guava.version>30.1.1-jre</guava.version>
@@ -305,7 +305,7 @@
             <!-- 实现 Spring Boot Admin Server 服务端 -->
             <dependency>
                 <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-server</artifactId>
+                <artifactId>spring-boot-admin-starter-pers.guangjian.hadoken.connector.tcp.server</artifactId>
                 <version>${spring-boot-admin.version}</version>
             </dependency>
             <dependency>

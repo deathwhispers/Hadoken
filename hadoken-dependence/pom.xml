@@ -16,7 +16,7 @@
         <revision>1.0.0</revision>
 
         <!-- 统一依赖管理 -->
-        <spring.boot.version>2.7.10</spring.boot.version>
+        <spring.boot.version>2.6.6</spring.boot.version>
         <spring.fox.version>3.0.0</spring.fox.version>
         <knife4j.version>3.0.3</knife4j.version>
 
@@ -33,11 +33,11 @@
 
         <!-- 监控相关 -->
         <skywalking.version>8.7.0</skywalking.version>
-        <spring-boot-admin.version>2.7.10</spring-boot-admin.version>
+        <spring-boot-admin.version>2.6.2</spring-boot-admin.version>
         <opentracing.version>0.31.0</opentracing.version>
 
         <!-- Config 配置中心相关 -->
-        <apollo.version>2.0.1</apollo.version>
+        <apollo.version>1.7.0</apollo.version>
         <configuration.version>1.9</configuration.version>
 
         <!-- 测试相关 -->
@@ -46,10 +46,11 @@
         <!-- 工具类相关 -->
         <log4jdbc.version>1.16</log4jdbc.version>
         <commons-pool2.version>2.5.0</commons-pool2.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
         <lombok.version>1.18.20</lombok.version>
         <mapstruct.version>1.5.3.Final</mapstruct.version>
         <hutool.version>5.8.15</hutool.version>
-        <easyexcel.verion>3.0.5</easyexcel.verion>
+        <easyexcel.verion>2.2.7</easyexcel.verion>
         <velocity.version>2.2</velocity.version>
         <screw.version>1.0.5</screw.version>
         <guava.version>30.1.1-jre</guava.version>
@@ -88,37 +89,43 @@
             <!-- 基础设施 start -->
             <dependency>
                 <groupId>pers.guangjian.hadoken</groupId>
-                <artifactId>hadoken-spring-boot-starter-web</artifactId>
+                <artifactId>hadoken-springboot-starter-web</artifactId>
                 <version>${revision}</version>
             </dependency>
 
             <dependency>
                 <groupId>pers.guangjian.hadoken</groupId>
-                <artifactId>hadoken-spring-boot-starter-redis</artifactId>
+                <artifactId>hadoken-springboot-starter-redis</artifactId>
                 <version>${revision}</version>
             </dependency>
 
             <dependency>
                 <groupId>pers.guangjian.hadoken</groupId>
-                <artifactId>hadoken-spring-boot-starter-mq</artifactId>
+                <artifactId>hadoken-springboot-starter-mq</artifactId>
                 <version>${revision}</version>
             </dependency>
 
             <dependency>
                 <groupId>pers.guangjian.hadoken</groupId>
-                <artifactId>hadoken-spring-boot-starter-security</artifactId>
+                <artifactId>hadoken-springboot-starter-mqtt</artifactId>
                 <version>${revision}</version>
             </dependency>
 
             <dependency>
                 <groupId>pers.guangjian.hadoken</groupId>
-                <artifactId>hadoken-spring-boot-starter-monitor</artifactId>
+                <artifactId>hadoken-springboot-starter-security</artifactId>
                 <version>${revision}</version>
             </dependency>
 
             <dependency>
                 <groupId>pers.guangjian.hadoken</groupId>
-                <artifactId>hadoken-spring-boot-starter-jpa</artifactId>
+                <artifactId>hadoken-springboot-starter-monitor</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>pers.guangjian.hadoken</groupId>
+                <artifactId>hadoken-springboot-starter-jpa</artifactId>
                 <version>${revision}</version>
             </dependency>
             <!-- 基础设施 end -->
@@ -186,6 +193,7 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
             </dependency>
 
             <!-- springfox 增加swagger的支持-->
@@ -211,6 +219,14 @@
                     <exclusion>
                         <artifactId>swagger-annotations</artifactId>
                         <groupId>io.swagger</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>io.swagger</groupId>
+                        <artifactId>swagger-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>io.swagger</groupId>
+                        <artifactId>swagger-models</artifactId>
                     </exclusion>
                 </exclusions>
             </dependency>
@@ -305,7 +321,7 @@
             <!-- 实现 Spring Boot Admin Server 服务端 -->
             <dependency>
                 <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-pers.guangjian.hadoken.connector.tcp.server</artifactId>
+                <artifactId>spring-boot-admin-starter-server</artifactId>
                 <version>${spring-boot-admin.version}</version>
             </dependency>
             <dependency>

@@ -33,8 +33,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Component;
-import pers.guangjian.hadoken.element.security.core.bean.SecurityProperties;
 import pers.guangjian.hadoken.infra.redis.util.RedisUtils;
+import pers.guangjian.hadoken.infra.security.config.SecurityProperties;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Key;
@@ -60,8 +60,8 @@ public class TokenProvider implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() {
-        byte[] keyBytes = Decoders.BASE64.decode(properties.getBase64Secret());
-        this.key = Keys.hmacShaKeyFor(keyBytes);
+/*        byte[] keyBytes = Decoders.BASE64.decode(properties.getTokenSecret());
+        this.key = Keys.hmacShaKeyFor(keyBytes);*/
     }
 
     public String createToken(Authentication authentication) {
@@ -103,22 +103,22 @@ public class TokenProvider implements InitializingBean {
      */
     public void checkRenewal(String token) {
         // 判断是否续期token,计算token的过期时间
-        long time = redisUtils.getExpire(properties.getOnlineKey() + token) * 1000;
+        long time = redisUtils.getExpire(properties.getTokenHeader() + token) * 1000;
         Date expireDate = DateUtil.offset(new Date(), DateField.MILLISECOND, (int) time);
         // 判断当前时间与过期时间的时间差
         long differ = expireDate.getTime() - System.currentTimeMillis();
         // 如果在续期检查的范围内，则续期
-        if (differ <= properties.getDetect()) {
+/*        if (differ <= properties.getDetect()) {
             long renew = time + properties.getRenew();
-            redisUtils.expire(properties.getOnlineKey() + token, renew, TimeUnit.MILLISECONDS);
-        }
+            redisUtils.expire(properties.getTokenHeader() + token, renew, TimeUnit.MILLISECONDS);
+        }*/
     }
 
     public String getToken(HttpServletRequest request) {
-        final String requestHeader = request.getHeader(properties.getHeader());
+/*        final String requestHeader = request.getHeader(properties.getHeader());
         if (requestHeader != null && requestHeader.startsWith(properties.getTokenStartWith())) {
             return requestHeader.substring(7);
-        }
+        }*/
         return null;
     }
 }

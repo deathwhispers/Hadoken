@@ -3,27 +3,36 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
+        <artifactId>hadoken-infra</artifactId>
         <groupId>pers.guangjian.hadoken</groupId>
-        <artifactId>hadoken-connector</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>hadoken-connector-tcp</artifactId>
-    <name>hadoken-connector-tcp</name>
-    <description>hadoken-connector-tcp</description>
+    <artifactId>hadoken-springboot-starter-redis</artifactId>
+
+    <name>${project.artifactId}</name>
+    <description>hadoken-springboot-starter-redis</description>
 
     <dependencies>
         <dependency>
             <groupId>pers.guangjian.hadoken</groupId>
             <artifactId>hadoken-common</artifactId>
         </dependency>
+
+        <!-- DB 相关 -->
         <dependency>
-            <groupId>pers.guangjian.hadoken</groupId>
-            <artifactId>hadoken-springboot-starter-web</artifactId>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson-spring-boot-starter</artifactId>
+        </dependency>
+
+        <!-- spring boot 缓存 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
     </dependencies>
 </project>

@@ -1,2 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  pers.guangjian.hadoken.connector.mqtt.config.MqttAutoConfiguration

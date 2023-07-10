@@ -3,27 +3,31 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
+        <artifactId>hadoken-infra</artifactId>
         <groupId>pers.guangjian.hadoken</groupId>
-        <artifactId>hadoken-connector</artifactId>
         <version>${revision}</version>
     </parent>
+    <artifactId>hadoken-springboot-starter-timer</artifactId>
+    <name>${project.artifactId}</name>
 
-    <artifactId>hadoken-connector-tcp</artifactId>
-    <name>hadoken-connector-tcp</name>
-    <description>hadoken-connector-tcp</description>
+    <description>hadoken-springboot-starter-timer</description>
 
     <dependencies>
         <dependency>
             <groupId>pers.guangjian.hadoken</groupId>
             <artifactId>hadoken-common</artifactId>
         </dependency>
+
+        <!-- Job 定时任务相关 -->
         <dependency>
-            <groupId>pers.guangjian.hadoken</groupId>
-            <artifactId>hadoken-springboot-starter-web</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-quartz</artifactId>
         </dependency>
+
+        <!-- 工具类相关 -->
         <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
         </dependency>
     </dependencies>
 </project>

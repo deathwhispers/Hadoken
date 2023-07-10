@@ -25,12 +25,12 @@
     <dependencies>
         <dependency>
             <groupId>pers.guangjian.hadoken</groupId>
-            <artifactId>hadoken-spring-boot-starter-web</artifactId>
+            <artifactId>hadoken-springboot-starter-web</artifactId>
         </dependency>
 
         <dependency>
             <groupId>pers.guangjian.hadoken</groupId>
-            <artifactId>hadoken-spring-boot-starter-jpa</artifactId>
+            <artifactId>hadoken-springboot-starter-jpa</artifactId>
         </dependency>
     </dependencies>
 </project>

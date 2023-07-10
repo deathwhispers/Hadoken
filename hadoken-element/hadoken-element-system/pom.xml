@@ -16,16 +16,16 @@
     <dependencies>
         <dependency>
             <groupId>pers.guangjian.hadoken</groupId>
-            <artifactId>hadoken-spring-boot-starter-jpa</artifactId>
+            <artifactId>hadoken-springboot-starter-jpa</artifactId>
         </dependency>
         <dependency>
             <groupId>pers.guangjian.hadoken</groupId>
-            <artifactId>hadoken-spring-boot-starter-redis</artifactId>
+            <artifactId>hadoken-springboot-starter-redis</artifactId>
         </dependency>
         <dependency>
             <groupId>pers.guangjian.hadoken</groupId>
             <artifactId>hadoken-element-log</artifactId>
-            <version>1.0.0</version>
+            <version>${revision}</version>
         </dependency>
 
         <dependency>

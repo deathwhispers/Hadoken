@@ -18,16 +18,15 @@ package pers.guangjian.hadoken.element.security.core.bean;
 
 import com.wf.captcha.*;
 import com.wf.captcha.base.Captcha;
+import org.springframework.context.annotation.Configuration;
 import pers.guangjian.hadoken.common.exception.BadRequestException;
 
 import java.util.Objects;
 
 /**
  * 配置文件读取
- *
- * @author liaojinlong
- * @date loginCode.length0loginCode.length0/6/10 17:loginCode.length6
  */
+@Configuration
 public class LoginProperties {
 
     /**

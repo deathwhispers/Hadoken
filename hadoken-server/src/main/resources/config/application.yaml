@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: dev
   servlet:
     context-path: /hadoken
   application:
@@ -7,11 +9,12 @@ spring:
     allow-bean-definition-overriding: true
   freemarker:
     check-template-location: false
-  profiles:
-    active: dev
   jackson:
     time-zone: GMT+8
-#  data:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  #  data:
 #    redis:
 #      repositories:
 #        enabled: false
@@ -28,6 +31,7 @@ spring:
 
 generator:
   enabled: true
+
 hadoken:
   info:
     version: 1.0.0
@@ -69,7 +73,6 @@ hadoken:
     send-maximum-quantity-per-day: 10
     begin-code: 9999 # 这里配置 9999 的原因是，测试方便。
     end-code: 9999 # 这里配置 9999 的原因是，测试方便。
-
 
 #jwt
 jwt:

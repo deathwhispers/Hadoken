@@ -23,6 +23,7 @@
         <module>hadoken-springboot-starter-timer</module>
         <module>hadoken-springboot-starter-web</module>
         <module>hadoken-springboot-starter-jpa</module>
+        <module>hadoken-springboot-starter-websocket</module>
     </modules>
 
 </project>

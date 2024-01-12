@@ -19,6 +19,6 @@ public interface OperationLogRepository extends JpaRepository<OperationLog, Long
      * @param logType 日志类型
      */
     @Modifying
-    @Query(value = "delete from element_operation_log where log_type = ?1", nativeQuery = true)
+    @Query(value = "delete from component_operation_log where log_type = ?1", nativeQuery = true)
     void deleteByLogType(String logType);
 }

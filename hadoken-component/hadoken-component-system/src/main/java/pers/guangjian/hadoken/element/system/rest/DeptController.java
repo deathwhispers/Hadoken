@@ -51,7 +51,7 @@ public class DeptController {
     @Log("导出部门数据")
     @ApiOperation("导出部门数据")
     @GetMapping(value = "/download")
-    @PreAuthorize("@el.check('dept:list')")
+    @PreAuthorize("@hadoken.check('dept:list')")
     public void download(HttpServletResponse response, DeptQueryCriteria criteria) throws Exception {
         deptService.download(deptService.queryAll(criteria, false), response);
     }
@@ -59,7 +59,7 @@ public class DeptController {
     @Log("查询部门")
     @ApiOperation("查询部门")
     @GetMapping
-    @PreAuthorize("@el.check('user:list','dept:list')")
+    @PreAuthorize("@hadoken.check('user:list','dept:list')")
     public ResponseEntity<Object> query(DeptQueryCriteria criteria) throws Exception {
         List<DeptDto> deptDtos = deptService.queryAll(criteria, true);
         return new ResponseEntity<>(PageUtil.toPage(deptDtos, deptDtos.size()),HttpStatus.OK);
@@ -68,7 +68,7 @@ public class DeptController {
     @Log("查询部门")
     @ApiOperation("查询部门:根据ID获取同级与上级数据")
     @PostMapping("/superior")
-    @PreAuthorize("@el.check('user:list','dept:list')")
+    @PreAuthorize("@hadoken.check('user:list','dept:list')")
     public ResponseEntity<Object> getSuperior(@RequestBody List<Long> ids) {
         Set<DeptDto> deptDtos  = new LinkedHashSet<>();
         for (Long id : ids) {
@@ -82,7 +82,7 @@ public class DeptController {
     @Log("新增部门")
     @ApiOperation("新增部门")
     @PostMapping
-    @PreAuthorize("@el.check('dept:add')")
+    @PreAuthorize("@hadoken.check('dept:add')")
     public ResponseEntity<Object> create(@Validated @RequestBody Dept resources){
         if (resources.getId() != null) {
             throw new BadRequestException("A new "+ ENTITY_NAME +" cannot already have an ID");
@@ -94,7 +94,7 @@ public class DeptController {
     @Log("修改部门")
     @ApiOperation("修改部门")
     @PutMapping
-    @PreAuthorize("@el.check('dept:edit')")
+    @PreAuthorize("@hadoken.check('dept:edit')")
     public ResponseEntity<Object> update(@Validated(Dept.Update.class) @RequestBody Dept resources){
         deptService.update(resources);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -103,7 +103,7 @@ public class DeptController {
     @Log("删除部门")
     @ApiOperation("删除部门")
     @DeleteMapping
-    @PreAuthorize("@el.check('dept:del')")
+    @PreAuthorize("@hadoken.check('dept:del')")
     public ResponseEntity<Object> delete(@RequestBody Set<Long> ids){
         Set<DeptDto> deptDtos = new HashSet<>();
         for (Long id : ids) {

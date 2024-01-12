@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
  */
 @Entity
 @Data
-@Table(name = "element_api_access_log")
+@Table(name = "component_api_access_log")
 public class ApiAccessLog {
 
     /**

@@ -17,7 +17,7 @@ import java.sql.Timestamp;
 @Entity
 @Getter
 @Setter
-@Table(name = "element_operation_log")
+@Table(name = "component_operation_log")
 @NoArgsConstructor
 public class OperationLog implements Serializable {
 

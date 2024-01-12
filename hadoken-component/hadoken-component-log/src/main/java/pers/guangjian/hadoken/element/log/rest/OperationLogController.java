@@ -32,7 +32,7 @@ public class OperationLogController {
     @Log("导出数据")
     @ApiOperation("导出数据")
     @GetMapping(value = "/download")
-    @PreAuthorize("@el.check()")
+    @PreAuthorize("@hadoken.check()")
     public void exportLog(HttpServletResponse response, OperationLogQueryCriteria criteria) throws IOException {
         criteria.setLogType("INFO");
         logService.download(logService.queryAll(criteria), response);
@@ -41,7 +41,7 @@ public class OperationLogController {
     @Log("导出错误数据")
     @ApiOperation("导出错误数据")
     @GetMapping(value = "/error/download")
-    @PreAuthorize("@el.check()")
+    @PreAuthorize("@hadoken.check()")
     public void exportErrorLog(HttpServletResponse response, OperationLogQueryCriteria criteria) throws IOException {
         criteria.setLogType("ERROR");
         logService.download(logService.queryAll(criteria), response);
@@ -49,7 +49,7 @@ public class OperationLogController {
 
     @GetMapping
     @ApiOperation("日志查询")
-    @PreAuthorize("@el.check()")
+    @PreAuthorize("@hadoken.check()")
     public ResponseEntity<Object> queryLog(OperationLogQueryCriteria criteria, Pageable pageable) {
         criteria.setLogType("INFO");
         return new ResponseEntity<>(logService.queryAll(criteria, pageable), HttpStatus.OK);
@@ -65,7 +65,7 @@ public class OperationLogController {
 
     @GetMapping(value = "/error")
     @ApiOperation("错误日志查询")
-    @PreAuthorize("@el.check()")
+    @PreAuthorize("@hadoken.check()")
     public ResponseEntity<Object> queryErrorLog(OperationLogQueryCriteria criteria, Pageable pageable) {
         criteria.setLogType("ERROR");
         return new ResponseEntity<>(logService.queryAll(criteria, pageable), HttpStatus.OK);
@@ -73,7 +73,7 @@ public class OperationLogController {
 
     @GetMapping(value = "/error/{id}")
     @ApiOperation("日志异常详情查询")
-    @PreAuthorize("@el.check()")
+    @PreAuthorize("@hadoken.check()")
     public ResponseEntity<Object> queryErrorLogDetail(@PathVariable Long id) {
         return new ResponseEntity<>(logService.findByErrDetail(id), HttpStatus.OK);
     }
@@ -81,7 +81,7 @@ public class OperationLogController {
     @DeleteMapping(value = "/del/error")
     @Log("删除所有ERROR日志")
     @ApiOperation("删除所有ERROR日志")
-    @PreAuthorize("@el.check()")
+    @PreAuthorize("@hadoken.check()")
     public ResponseEntity<Object> delAllErrorLog() {
         logService.delAllByError();
         return new ResponseEntity<>(HttpStatus.OK);
@@ -90,7 +90,7 @@ public class OperationLogController {
     @DeleteMapping(value = "/del/info")
     @Log("删除所有INFO日志")
     @ApiOperation("删除所有INFO日志")
-    @PreAuthorize("@el.check()")
+    @PreAuthorize("@hadoken.check()")
     public ResponseEntity<Object> delAllInfoLog() {
         logService.delAllByInfo();
         return new ResponseEntity<>(HttpStatus.OK);

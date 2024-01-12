@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
  */
 @Entity
 @Data
-@Table(name = "element_api_error_log")
+@Table(name = "component_api_error_log")
 public class ApiErrorLog {
 
     /**

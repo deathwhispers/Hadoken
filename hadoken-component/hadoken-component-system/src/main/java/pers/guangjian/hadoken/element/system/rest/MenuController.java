@@ -55,7 +55,7 @@ public class MenuController {
     @Log("导出菜单数据")
     @ApiOperation("导出菜单数据")
     @GetMapping(value = "/download")
-    @PreAuthorize("@el.check('menu:list')")
+    @PreAuthorize("@hadoken.check('menu:list')")
     public void download(HttpServletResponse response, MenuQueryCriteria criteria) throws Exception {
         menuService.download(menuService.queryAll(criteria, false), response);
     }
@@ -70,7 +70,7 @@ public class MenuController {
 
     @ApiOperation("返回全部的菜单")
     @GetMapping(value = "/lazy")
-    @PreAuthorize("@el.check('menu:list','roles:list')")
+    @PreAuthorize("@hadoken.check('menu:list','roles:list')")
     public ResponseEntity<Object> query(@RequestParam Long pid){
         return new ResponseEntity<>(menuService.getMenus(pid),HttpStatus.OK);
     }
@@ -78,7 +78,7 @@ public class MenuController {
     @Log("查询菜单")
     @ApiOperation("查询菜单")
     @GetMapping
-    @PreAuthorize("@el.check('menu:list')")
+    @PreAuthorize("@hadoken.check('menu:list')")
     public ResponseEntity<Object> query(MenuQueryCriteria criteria) throws Exception {
         List<MenuDto> menuDtoList = menuService.queryAll(criteria, true);
         return new ResponseEntity<>(PageUtil.toPage(menuDtoList, menuDtoList.size()),HttpStatus.OK);
@@ -87,7 +87,7 @@ public class MenuController {
     @Log("查询菜单")
     @ApiOperation("查询菜单:根据ID获取同级与上级数据")
     @PostMapping("/superior")
-    @PreAuthorize("@el.check('menu:list')")
+    @PreAuthorize("@hadoken.check('menu:list')")
     public ResponseEntity<Object> getSuperior(@RequestBody List<Long> ids) {
         Set<MenuDto> menuDtos = new LinkedHashSet<>();
         if(CollectionUtil.isNotEmpty(ids)){
@@ -103,7 +103,7 @@ public class MenuController {
     @Log("新增菜单")
     @ApiOperation("新增菜单")
     @PostMapping
-    @PreAuthorize("@el.check('menu:add')")
+    @PreAuthorize("@hadoken.check('menu:add')")
     public ResponseEntity<Object> create(@Validated @RequestBody Menu resources){
         if (resources.getId() != null) {
             throw new BadRequestException("A new "+ ENTITY_NAME +" cannot already have an ID");
@@ -115,7 +115,7 @@ public class MenuController {
     @Log("修改菜单")
     @ApiOperation("修改菜单")
     @PutMapping
-    @PreAuthorize("@el.check('menu:edit')")
+    @PreAuthorize("@hadoken.check('menu:edit')")
     public ResponseEntity<Object> update(@Validated(Menu.Update.class) @RequestBody Menu resources){
         menuService.update(resources);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -124,7 +124,7 @@ public class MenuController {
     @Log("删除菜单")
     @ApiOperation("删除菜单")
     @DeleteMapping
-    @PreAuthorize("@el.check('menu:del')")
+    @PreAuthorize("@hadoken.check('menu:del')")
     public ResponseEntity<Object> delete(@RequestBody Set<Long> ids){
         Set<Menu> menuSet = new HashSet<>();
         for (Long id : ids) {

@@ -19,37 +19,37 @@
     <dependencies>
         <dependency>
             <groupId>pers.guangjian.hadoken</groupId>
-            <artifactId>hadoken-element-auth</artifactId>
+            <artifactId>hadoken-component-auth</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>pers.guangjian.hadoken</groupId>
-            <artifactId>hadoken-element-tenant</artifactId>
+            <artifactId>hadoken-component-tenant</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>pers.guangjian.hadoken</groupId>
-            <artifactId>hadoken-element-group</artifactId>
+            <artifactId>hadoken-component-group</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>pers.guangjian.hadoken</groupId>
-            <artifactId>hadoken-element-log</artifactId>
+            <artifactId>hadoken-component-log</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>pers.guangjian.hadoken</groupId>
-            <artifactId>hadoken-element-registry</artifactId>
+            <artifactId>hadoken-component-registry</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>pers.guangjian.hadoken</groupId>
-            <artifactId>hadoken-element-subscription</artifactId>
+            <artifactId>hadoken-component-subscription</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>pers.guangjian.hadoken</groupId>
-            <artifactId>hadoken-element-system</artifactId>
+            <artifactId>hadoken-component-system</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

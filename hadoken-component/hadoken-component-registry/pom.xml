@@ -3,13 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>hadoken-element</artifactId>
+        <artifactId>hadoken-component</artifactId>
         <groupId>pers.guangjian.hadoken</groupId>
         <version>${revision}</version>
     </parent>
-    <artifactId>hadoken-element-tenant</artifactId>
+    <artifactId>hadoken-component-registry</artifactId>
 
     <name>${project.artifactId}</name>
-    <description>hadoken-element-tenant</description>
+    <description>hadoken-component-registry</description>
 
 </project>

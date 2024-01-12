@@ -18,7 +18,7 @@
         <module>hadoken-infra</module>
         <module>hadoken-adaptor</module>
         <module>hadoken-connector</module>
-        <module>hadoken-element</module>
+        <module>hadoken-component</module>
         <module>hadoken-distributor</module>
         <module>hadoken-server</module>
         <module>hadoken-tool</module>

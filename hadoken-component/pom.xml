@@ -7,19 +7,19 @@
         <artifactId>hadoken</artifactId>
         <version>${revision}</version>
     </parent>
-    <artifactId>hadoken-element</artifactId>
+    <artifactId>hadoken-component</artifactId>
     <name>${project.artifactId}</name>
-    <description>hadoken-element</description>
+    <description>hadoken-component</description>
     <packaging>pom</packaging>
 
     <modules>
-        <module>hadoken-element-auth</module>
-        <module>hadoken-element-group</module>
-        <module>hadoken-element-log</module>
-        <module>hadoken-element-registry</module>
-        <module>hadoken-element-subscription</module>
-        <module>hadoken-element-tenant</module>
-        <module>hadoken-element-system</module>
+        <module>hadoken-component-auth</module>
+        <module>hadoken-component-group</module>
+        <module>hadoken-component-log</module>
+        <module>hadoken-component-registry</module>
+        <module>hadoken-component-subscription</module>
+        <module>hadoken-component-tenant</module>
+        <module>hadoken-component-system</module>
     </modules>
 
     <dependencies>

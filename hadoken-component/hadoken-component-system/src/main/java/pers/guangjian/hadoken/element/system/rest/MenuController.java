@@ -45,7 +45,7 @@ import java.util.*;
 @RestController
 @RequiredArgsConstructor
 @Api(tags = "系统：菜单管理")
-@RequestMapping("/api/menus")
+@RequestMapping("/sys/menus")
 public class MenuController {
 
     private final MenuService menuService;

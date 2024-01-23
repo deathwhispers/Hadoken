@@ -13,7 +13,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>hadoken-component-auth</module>
         <module>hadoken-component-group</module>
         <module>hadoken-component-log</module>
         <module>hadoken-component-registry</module>
